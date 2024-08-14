@@ -174,3 +174,6 @@ pyrightconfig.json
 
 # Audio files
 *.mp3
+
+# Firebase service account
+utter-firebase-service-account.json
