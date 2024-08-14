@@ -2,7 +2,7 @@ import random
 from typing import Literal
 
 from story_compiler import compile_json_to_story, read_json_file
-from schema import Exercise, ExerciseBlock, Story, StoryBlock
+from backstage.schema import Exercise, ExerciseBlock, Story, StoryBlock
 
 
 class StoryPlayer:

@@ -1,7 +1,7 @@
 import json
 from typing import Any, Dict
 from pydantic import ValidationError
-from schema import Story
+from backstage.schema import Story
 
 
 def compile_json_to_story(json_data: Dict[str, Any]) -> Story:
