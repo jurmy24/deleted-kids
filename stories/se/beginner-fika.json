@@ -63,6 +63,42 @@
               "action": null,
               "affected_text": null,
               "hints": null
+            },
+            {
+              "exercise_id": 4,
+              "type": "comp-mcq",
+              "cefr": ["A2"],
+              "query": "Hur många minuter sen är Karl?",
+              "answer_options": ["5 minuter", "10 minuter", "15 minuter"],
+              "correct_answer": "5 minuter",
+              "audio": null,
+              "action": null,
+              "affected_text": null,
+              "hints": null
+            },
+            {
+              "exercise_id": 5,
+              "type": "comp-tf",
+              "cefr": ["A2"],
+              "query": "Väntar Anna utanför caféet?",
+              "answer_options": ["Ja", "Nej"],
+              "correct_answer": "Nej",
+              "audio": null,
+              "action": null,
+              "affected_text": null,
+              "hints": null
+            },
+            {
+              "exercise_id": 6,
+              "type": "comp-mcq",
+              "cefr": ["A1", "A2"],
+              "query": "Vilken tid är det när Anna väntar på Karl?",
+              "answer_options": ["4:30", "4:35", "4:40"],
+              "correct_answer": "4:35",
+              "audio": null,
+              "action": null,
+              "affected_text": null,
+              "hints": null
             }
           ]
         },
@@ -110,6 +146,44 @@
               "audio": null,
               "action": "hide-audio",
               "affected_text": "Förlåt! Min buss var sen.",
+              "hints": null
+            },
+            {
+              "exercise_id": 7,
+              "type": "pronounce-rep",
+              "cefr": ["A1"],
+              "query": null,
+              "answer_options": null,
+              "correct_answer": null,
+              "audio": null,
+              "action": "emphasize-text",
+              "affected_text": "Plötsligt kommer Karl, en lång blond man, springande.",
+              "hints": null
+            },
+            {
+              "exercise_id": 9,
+              "type": "speak-question",
+              "cefr": ["A2"],
+              "query": "Vad skulle du säga om du var Karl och bussen var sen?",
+              "answer_options": null,
+              "correct_answer": null,
+              "audio": null,
+              "action": null,
+              "affected_text": null,
+              "hints": [
+                "Tänk på att använda en ursäkt och förklara situationen."
+              ]
+            },
+            {
+              "exercise_id": 10,
+              "type": "pronounce-rep",
+              "cefr": ["A1", "A2"],
+              "query": null,
+              "answer_options": null,
+              "correct_answer": null,
+              "audio": null,
+              "action": "emphasize-text",
+              "affected_text": "Plötsligt kommer Karl, en lång blond man, springande.",
               "hints": null
             }
           ]
@@ -162,6 +236,72 @@
                 "Jag vill äta en chokladboll/glass/sandwich",
                 "Jag tar gärna en chokladboll/glass/sandwich och en kopp kaffe/mjölk"
               ]
+            },
+            {
+              "exercise_id": 8,
+              "type": "speak-question",
+              "cefr": ["A1"],
+              "query": "Hur svarar du när någon frågar vad du vill äta?",
+              "answer_options": null,
+              "correct_answer": null,
+              "audio": null,
+              "action": null,
+              "affected_text": null,
+              "hints": [
+                "Du kan säga vad du vill ha och kanske lägga till en dryck."
+              ]
+            },
+            {
+              "exercise_id": 9,
+              "type": "pronounce-rep",
+              "cefr": ["A1", "A2"],
+              "query": null,
+              "answer_options": null,
+              "correct_answer": null,
+              "audio": null,
+              "action": "emphasize-text",
+              "affected_text": "Oj…Det var långt bort. Jag är glad att du kom då! Vad vill du ha att äta?",
+              "hints": null
+            },
+            {
+              "exercise_id": 10,
+              "type": "speak-question",
+              "cefr": ["A2"],
+              "query": "Vad skulle du säga om du bodde långt bort som Karl?",
+              "answer_options": null,
+              "correct_answer": null,
+              "audio": null,
+              "action": null,
+              "affected_text": null,
+              "hints": [
+                "Tänk på att beskriva hur långt bort du bor och hur du kom hit."
+              ]
+            },
+            {
+              "exercise_id": 11,
+              "type": "speak-replace",
+              "cefr": ["A2"],
+              "query": "Ersätt 'Stockholm' med en annan stad och säg meningen.",
+              "answer_options": null,
+              "correct_answer": null,
+              "audio": null,
+              "action": "hide-all",
+              "affected_text": "Bussar i Stockholm är ofta sena ändå. Jag föredrar att ta metro, det brukar vara snabbare.",
+              "hints": [
+                "Du kan använda namn som 'Göteborg', 'Malmö', eller 'Uppsala'."
+              ]
+            },
+            {
+              "exercise_id": 12,
+              "type": "pronounce-rep",
+              "cefr": ["A1", "A2"],
+              "query": null,
+              "answer_options": null,
+              "correct_answer": null,
+              "audio": null,
+              "action": "emphasize-text",
+              "affected_text": "Jag bor faktiskt i Södertälje, runt en timme från Stockholm.",
+              "hints": null
             }
           ]
         },
