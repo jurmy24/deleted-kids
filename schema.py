@@ -17,8 +17,12 @@ class Exercise(BaseModel):
     cefr: List[Literal["A1", "A2", "B1", "B2", "C1"]]
     skip_condition: Optional[Literal["if-not-voice", "if-not-audio"]] = None
     query: Optional[str] = None
-    answer_options: Optional[List[str]] = None
-    correct_answer: Optional[str] = None
+    answer_options: Optional[List[str]] = (
+        None  # TODO: This should be a dict with key as the identifier and value as the text
+    )
+    correct_answer: Optional[str] = (
+        None  # TODO: This should be the identifier of the correct answer (eg. an int)
+    )
     hints: Optional[List[str]] = None
     audio: Optional[Any] = None
     action: Optional[
