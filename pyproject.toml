@@ -8,6 +8,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 pydantic = "^2.8.2"
+python-dotenv = "^1.0.1"
+requests = "^2.32.3"
+elevenlabs = "^1.7.0"
 
 
 [build-system]
