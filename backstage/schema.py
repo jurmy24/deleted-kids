@@ -150,5 +150,7 @@ class Chapter(BaseModel):
 class Story(BaseModel):
     title: str
     description: str
+    language: Literal["en", "se", "fr"]
+    story_id: int
     level: Literal["beginner", "intermediate", "advanced"]
     chapters: List[Chapter]

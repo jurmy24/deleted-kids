@@ -1,5 +1,7 @@
 {
   "title": "Fika i Stockholm",
+  "story_id": 1,
+  "language": "se",
   "description": "En berättelse om Annas och Karls blinda fikadejt på ett café i Stockholm.",
   "level": "beginner",
   "chapters": [
@@ -107,13 +109,13 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 2,
+              "line_id": 1,
               "character": "Narrator",
               "text": "Plötsligt kommer Karl, en lång blond man, springande.",
               "audio": null
             },
             {
-              "line_id": 3,
+              "line_id": 2,
               "character": "Karl",
               "text": "Förlåt! Min buss var sen.",
               "audio": null
@@ -125,7 +127,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 5,
+              "exercise_id": 1,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -137,7 +139,7 @@
               "hints": null
             },
             {
-              "exercise_id": 6,
+              "exercise_id": 2,
               "type": "pronounce-deaf",
               "cefr": ["A2"],
               "query": null,
@@ -149,7 +151,7 @@
               "hints": null
             },
             {
-              "exercise_id": 7,
+              "exercise_id": 3,
               "type": "pronounce-rep",
               "cefr": ["A1"],
               "query": null,
@@ -161,7 +163,7 @@
               "hints": null
             },
             {
-              "exercise_id": 9,
+              "exercise_id": 4,
               "type": "speak-question",
               "cefr": ["A2"],
               "query": "Vad skulle du säga om du var Karl och bussen var sen?",
@@ -175,7 +177,7 @@
               ]
             },
             {
-              "exercise_id": 10,
+              "exercise_id": 5,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -193,27 +195,27 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 4,
+              "line_id": 1,
               "character": "Anna",
               "text": "Hej! Det går bra, jag kom precis. Bussar i Stockholm är ofta sena ändå. Jag föredrar att ta metro, det brukar vara snabbare.",
               "audio": null
             },
             {
-              "line_id": 5,
+              "line_id": 2,
               "character": "Karl",
               "text": "Jag bor faktiskt i Södertälje, runt en timme från Stockholm.",
               "audio": null
             },
             {
-              "line_id": 6,
+              "line_id": 3,
               "character": "Anna",
               "text": "Oj…Det var långt bort. Jag är glad att du kom då! Vad vill du ha att äta?",
               "audio": null
             },
             {
-              "line_id": 7,
+              "line_id": 4,
               "character": "Karl",
-              "text": "",
+              "text": "Jag tar en chokladboll och en kopp kaffe.",
               "audio": null
             }
           ]
@@ -223,7 +225,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 7,
+              "exercise_id": 1,
               "type": "speak-replace",
               "cefr": ["A1", "A2"],
               "query": "Säg vad du vill äta",
@@ -231,14 +233,14 @@
               "correct_answer": null,
               "audio": null,
               "action": "hide-all",
-              "affected_text": "Vad vill du ha att äta?",
+              "affected_text": "Jag tar en chokladboll och en kopp kaffe.",
               "hints": [
                 "Jag vill äta en chokladboll/glass/sandwich",
                 "Jag tar gärna en chokladboll/glass/sandwich och en kopp kaffe/mjölk"
               ]
             },
             {
-              "exercise_id": 8,
+              "exercise_id": 2,
               "type": "speak-question",
               "cefr": ["A1"],
               "query": "Hur svarar du när någon frågar vad du vill äta?",
@@ -252,7 +254,7 @@
               ]
             },
             {
-              "exercise_id": 9,
+              "exercise_id": 3,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -264,7 +266,7 @@
               "hints": null
             },
             {
-              "exercise_id": 10,
+              "exercise_id": 4,
               "type": "speak-question",
               "cefr": ["A2"],
               "query": "Vad skulle du säga om du bodde långt bort som Karl?",
@@ -278,7 +280,7 @@
               ]
             },
             {
-              "exercise_id": 11,
+              "exercise_id": 5,
               "type": "speak-replace",
               "cefr": ["A2"],
               "query": "Ersätt 'Stockholm' med en annan stad och säg meningen.",
@@ -292,7 +294,7 @@
               ]
             },
             {
-              "exercise_id": 12,
+              "exercise_id": 6,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -310,19 +312,19 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 8,
+              "line_id": 1,
               "character": "Anna",
               "text": "Låter som ett bra val. Jag skall beställa en kaffe och en kanelbulle.",
               "audio": null
             },
             {
-              "line_id": 9,
+              "line_id": 2,
               "character": "Narrator",
               "text": "Någon minut senare kommer en servitris som tar beställningen och går in till köket.",
               "audio": null
             },
             {
-              "line_id": 10,
+              "line_id": 3,
               "character": "Anna",
               "text": "Jag undrar Karl, hur lång är du? Du kom ju nästan inte genom dörren!",
               "audio": null
@@ -334,7 +336,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 8,
+              "exercise_id": 1,
               "type": "pronounce-rep",
               "cefr": ["A1"],
               "query": null,
@@ -346,7 +348,7 @@
               "hints": null
             },
             {
-              "exercise_id": 9,
+              "exercise_id": 2,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -358,7 +360,7 @@
               "hints": null
             },
             {
-              "exercise_id": 10,
+              "exercise_id": 3,
               "type": "pronounce-deaf",
               "cefr": ["A2"],
               "query": null,
@@ -376,7 +378,7 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 11,
+              "line_id": 1,
               "character": "Karl",
               "text": "Ja, jag är ganska lång, 196 centimeter… Men det är bra för sport!",
               "audio": null
@@ -388,7 +390,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 11,
+              "exercise_id": 1,
               "type": "interact",
               "cefr": ["A1", "A2"],
               "skip_condition": null,
@@ -417,7 +419,7 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 12,
+              "line_id": 1,
               "character": "Narrator",
               "text": "Efter Karls kommentar om hans längd startades en diskussion om sport. Anna spelar mycket handboll och undrar vilken sport Karl tycker om medan de väntar på sin fika.",
               "audio": null
@@ -429,7 +431,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 12,
+              "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
               "query": "Vad handlar Anna och Karls samtal om?",
@@ -441,7 +443,7 @@
               "hints": null
             },
             {
-              "exercise_id": 13,
+              "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
               "query": "Vilken sport spelar Anna?",
@@ -453,7 +455,7 @@
               "hints": null
             },
             {
-              "exercise_id": 14,
+              "exercise_id": 3,
               "type": "interact",
               "cefr": ["A1", "A2"],
               "query": "Vilken sport tror du Anna gillar bäst?",
@@ -468,7 +470,7 @@
               ]
             },
             {
-              "exercise_id": 15,
+              "exercise_id": 4,
               "type": "comp-mcq",
               "cefr": ["A1"],
               "query": "Vad väntar Anna och Karl på?",
@@ -480,7 +482,7 @@
               "hints": null
             },
             {
-              "exercise_id": 16,
+              "exercise_id": 5,
               "type": "speak-question",
               "cefr": ["A1", "A2"],
               "query": "Vad gillar du för sport?",
@@ -498,13 +500,13 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 13,
+              "line_id": 1,
               "character": "Karl",
               "text": "Du vet, jag spelade basket på gymnasiet. Det hjälpte mig att vara så lång!",
               "audio": null
             },
             {
-              "line_id": 14,
+              "line_id": 2,
               "character": "Anna",
               "text": "Det tror jag inte påverkar din längd… Du spelade väl basket på grund av att du var lång?",
               "audio": null
@@ -516,7 +518,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 17,
+              "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
               "query": "Vad betyder 'gymnasiet'?",
@@ -532,7 +534,7 @@
               "hints": null
             },
             {
-              "exercise_id": 18,
+              "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
               "query": "Vad tror Anna om längd och basket?",
@@ -548,7 +550,7 @@
               "hints": null
             },
             {
-              "exercise_id": 19,
+              "exercise_id": 3,
               "type": "speak-question",
               "cefr": ["A2"],
               "query": "Vad tycker du om Annas kommentar om längd och sport?",
@@ -563,7 +565,7 @@
               ]
             },
             {
-              "exercise_id": 20,
+              "exercise_id": 4,
               "type": "pronounce-rep",
               "cefr": ["A2"],
               "query": null,
@@ -581,31 +583,31 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 15,
+              "line_id": 1,
               "character": "Karl",
               "text": "Jag tror absolut att man blir längre av att spela basket. Jag är ett levande exempel.",
               "audio": null
             },
             {
-              "line_id": 16,
+              "line_id": 2,
               "character": "Anna",
               "text": "Uh… Jag tror inte på det en sekund…",
               "audio": null
             },
             {
-              "line_id": 17,
+              "line_id": 3,
               "character": "Narrator",
               "text": "Anna börjar bli lite irriterad av diskussionen så hon ändrar ämnet.",
               "audio": null
             },
             {
-              "line_id": 18,
+              "line_id": 4,
               "character": "Anna",
               "text": "Jag spelar väldigt mycket handboll i min fritid. Jag tycker det är likt basket. Det går väldigt fort, eller hur?",
               "audio": null
             },
             {
-              "line_id": 19,
+              "line_id": 5,
               "character": "Karl",
               "text": "Jo verkligen! …",
               "audio": null
@@ -617,7 +619,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 21,
+              "exercise_id": 1,
               "type": "speak-question",
               "cefr": ["A1", "A2"],
               "query": "Vilken sport tycker du är roligast?",
@@ -638,19 +640,19 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 20,
+              "line_id": 1,
               "character": "Narrator",
               "text": "Plötsligt kommer servitrisen med två kaffeer, en chokladboll, och en kanelbulle.",
               "audio": null
             },
             {
-              "line_id": 21,
+              "line_id": 2,
               "character": "Anna",
               "text": "Nice! Varm kaffe är så mysigt.",
               "audio": null
             },
             {
-              "line_id": 22,
+              "line_id": 3,
               "character": "Karl",
               "text": "Ah jo verkligen.",
               "audio": null
@@ -662,7 +664,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 22,
+              "exercise_id": 1,
               "type": "pronounce-deaf",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -680,19 +682,19 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 23,
+              "line_id": 1,
               "character": "Narrator",
               "text": "Karl och Anna sitter i 20 minuter till och pratar om sport och livet. När de är klara är det tid att betala.",
               "audio": null
             },
             {
-              "line_id": 24,
+              "line_id": 2,
               "character": "Karl",
               "text": "Å nej! Jag glömde min plånbok!",
               "audio": null
             },
             {
-              "line_id": 25,
+              "line_id": 3,
               "character": "Anna",
               "text": "Verkligen? Hmm, jag får väl betala då. Bra start…",
               "audio": null
@@ -704,7 +706,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 23,
+              "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
               "query": "Vem erbjuder sig att betala?",
@@ -716,7 +718,7 @@
               "hints": null
             },
             {
-              "exercise_id": 24,
+              "exercise_id": 2,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -728,7 +730,7 @@
               "hints": null
             },
             {
-              "exercise_id": 25,
+              "exercise_id": 3,
               "type": "speak-question",
               "cefr": ["A2"],
               "query": "Tycker du att det är viktigt att betala för sig själv på en dejt? Varför eller varför inte?",
@@ -756,19 +758,19 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 26,
+              "line_id": 1,
               "character": "Narrator",
               "text": "Efter att ha betalat notan lämnar Anna och Karl Kaffestugan. Det är en vacker kväll i Stockholm, och de bestämmer sig för att ta en promenad.",
               "audio": null
             },
             {
-              "line_id": 27,
+              "line_id": 2,
               "character": "Anna",
               "text": "Det var en trevlig fika, trots att du glömde din plånbok, Karl! Tur att jag hade med mig min.",
               "audio": null
             },
             {
-              "line_id": 28,
+              "line_id": 3,
               "character": "Karl",
               "text": "Ja, verkligen pinsamt. Jag får bjuda nästa gång! Men det var ändå trevligt att prata om sport.",
               "audio": null
@@ -780,7 +782,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 26,
+              "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1"],
               "query": "Vad bestämmer sig Anna och Karl för att göra efter fikat?",
@@ -796,7 +798,7 @@
               "hints": null
             },
             {
-              "exercise_id": 27,
+              "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
               "query": "Vad betyder \"promenad\"?",
@@ -818,13 +820,13 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 29,
+              "line_id": 1,
               "character": "Narrator",
               "text": "När de går längs gatan i centrala Stockholm passerar de restauranger. Plötsligt stannar Karl när de passerar ett kafé. Han ser hans ex, Maria, som sitter där med några vänner.",
               "audio": null
             },
             {
-              "line_id": 30,
+              "line_id": 2,
               "character": "Karl",
               "text": "Oj, det där är Maria... mitt ex.",
               "audio": null
@@ -836,7 +838,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 28,
+              "exercise_id": 1,
               "type": "pronounce-deaf",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -847,7 +849,7 @@
               "hints": null
             },
             {
-              "exercise_id": 29,
+              "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1"],
               "query": "Vem ser Karl när de passerar kaféet?",
@@ -869,49 +871,49 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 31,
+              "line_id": 1,
               "character": "Anna",
               "text": "Oj då. Är det okej? Du verkar lite nervös.",
               "audio": null
             },
             {
-              "line_id": 32,
+              "line_id": 2,
               "character": "Karl",
               "text": "Ja, det är bara oväntat att se henne här. Vi har inte pratat på ett tag.",
               "audio": null
             },
             {
-              "line_id": 33,
+              "line_id": 3,
               "character": "Narrator",
               "text": "Anna ler lite. Hon kan förstå att det känns konstigt för Karl, men hon försöker göra situationen lite lättare.",
               "audio": null
             },
             {
-              "line_id": 34,
+              "line_id": 4,
               "character": "Anna",
               "text": "Vill du gå och säga hej, eller är det bättre att vi går?",
               "audio": null
             },
             {
-              "line_id": 35,
+              "line_id": 5,
               "character": "Karl",
               "text": "Kanske det är bäst att vi går vidare. Jag vill inte störa dem.",
               "audio": null
             },
             {
-              "line_id": 36,
+              "line_id": 6,
               "character": "Narrator",
               "text": "De fortsätter att gå och pratar om andra saker. Karl verkar mer avslappnad när de lämnar kaféet bakom sig. Plötsligt vibrerar Annas telefon i hennes ficka. Hon tar upp den och ser ett meddelande från sitt eget ex.",
               "audio": null
             },
             {
-              "line_id": 37,
+              "line_id": 7,
               "character": "Anna",
               "text": "Ha! Nu fick jag ett meddelande från mitt ex! Det verkar som om vi har ett tema för kvällen, eller hur?",
               "audio": null
             },
             {
-              "line_id": 38,
+              "line_id": 8,
               "character": "Karl",
               "text": "Haha, vad? Vad skriver han?",
               "audio": null
@@ -923,7 +925,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 30,
+              "exercise_id": 1,
               "type": "interact",
               "cefr": ["A2"],
               "query": "Vilken typ av meddelanden gillar du att få, och från vem?",
@@ -938,7 +940,7 @@
               ]
             },
             {
-              "exercise_id": 31,
+              "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
               "query": "Vad händer med Anna när hon får ett meddelande?",
@@ -960,13 +962,13 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 39,
+              "line_id": 1,
               "character": "Narrator",
               "text": "Anna ler när hon läser meddelandet. Det är inget viktigt, bara ett gammalt foto från en resa de gjorde tillsammans. Hon stoppar tillbaka telefonen i fickan och fortsätter att gå med Karl.",
               "audio": null
             },
             {
-              "line_id": 40,
+              "line_id": 2,
               "character": "Anna",
               "text": "Det var bara ett gammalt foto från en resa. Inget speciellt.",
               "audio": null
@@ -978,7 +980,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 32,
+              "exercise_id": 1,
               "type": "pronounce-deaf",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -995,19 +997,19 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 41,
+              "line_id": 1,
               "character": "Karl",
               "text": "Ja, livet har en rolig timing ibland.",
               "audio": null
             },
             {
-              "line_id": 42,
+              "line_id": 2,
               "character": "Narrator",
               "text": "Anna och Karl fortsätter promenera i Stockholm och diskuterar många olika ämnen. När de till slut når tunnelbanan är det dags att säga hej då.",
               "audio": null
             },
             {
-              "line_id": 43,
+              "line_id": 3,
               "character": "Anna",
               "text": "Tack för en trevlig kväll, Karl.",
               "audio": null
@@ -1019,7 +1021,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 33,
+              "exercise_id": 1,
               "type": "pronounce-deaf",
               "cefr": ["A1", "A2"],
               "query": null,
@@ -1036,7 +1038,7 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 44,
+              "line_id": 1,
               "character": "Karl",
               "text": "Ja, tack själv, Anna. Vi får göra om det någon gång. Och jag lovar att inte glömma plånboken!",
               "audio": null
@@ -1048,7 +1050,7 @@
           "block_type": "exercise",
           "exercise_options": [
             {
-              "exercise_id": 34,
+              "exercise_id": 1,
               "type": "interact",
               "cefr": ["A1", "A2"],
               "query": "Hur avslutar du en trevlig kväll med en vän?",
@@ -1063,7 +1065,7 @@
               ]
             },
             {
-              "exercise_id": 35,
+              "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
               "query": "Vad lovar Karl?",
@@ -1085,7 +1087,7 @@
           "block_type": "story",
           "lines": [
             {
-              "line_id": 45,
+              "line_id": 1,
               "character": "Narrator",
               "text": "Anna och Karl skiljs åt med ett leende.",
               "audio": null

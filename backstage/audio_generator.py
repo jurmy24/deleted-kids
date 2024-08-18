@@ -1,21 +1,29 @@
 import os
+from typing import Dict, Optional
 import uuid
 from dotenv import load_dotenv
 from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
 from backstage.schema import ExerciseBlock, Story, StoryBlock
+from firebase_storage import FirebaseStorage
 
-# Load environment variables from .env file
+# Load environment variables
 load_dotenv()
 
-# Initialize the Eleven Labs client with the API key from the environment
+# Get environment variables
 ELEVENLABS_API_KEY = os.getenv("XI_API_KEY")
-client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+
+# Initialize Eleven Labs and Firebase Storage clients
+xi_client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+firebase_storage = FirebaseStorage()
 
 
-def text_to_speech_file(text: str, voice_id: str, name: str) -> str:
-    # Calling the text_to_speech conversion API with detailed parameters
-    response = client.text_to_speech.convert(
+# TODO: this should most likely be async later
+def text_to_speech(text: str, voice_id: str) -> bytes:
+    """
+    Converts text to speech using Eleven Labs and returns the audio content as bytes.
+    """
+    response = xi_client.text_to_speech.convert(
         voice_id=voice_id,
         output_format="mp3_22050_32",
         text=text,
@@ -28,30 +36,55 @@ def text_to_speech_file(text: str, voice_id: str, name: str) -> str:
         ),
     )
 
-    # Generate a unique file name for the output MP3 file
-    save_file_path = f"voices/output-{name}-{uuid.uuid4()}.mp3"
-
-    # Writing the audio to a file
-    with open(save_file_path, "wb") as f:
-        for chunk in response:
-            if chunk:
-                f.write(chunk)
-
-    print(f"{save_file_path}: A new audio file was saved successfully!")
-
-    # Return the path of the saved audio file
-    return save_file_path
+    audio_content = b"".join(response)
+    return audio_content
 
 
-def integrate_audio_into_story(story: Story) -> Story:
+def upload_audio_to_storage(
+    audio_content: bytes,
+    language: str,
+    story_title: str,
+    story_id: int,
+    chapter: int,
+    character: str,  # character is the narrator if it is an exercise
+    block_id: int,
+    exercise_id: Optional[int],
+    line_id: Optional[int],
+) -> str:
+    """
+    Uploads the audio content to Firebase Storage and returns the URL.
+    """
+    extra_identifier = ""
+    if exercise_id:
+        extra_identifier = f"e{exercise_id}"
+
+    if line_id:
+        extra_identifier = f"l{line_id}"
+
+    destination_blob_name = f"audio/{language}/{story_id}_{story_title}/chapter_{chapter}/b{block_id}_{extra_identifier}_c{character.capitalize()}.mp3"
+    firebase_storage.upload_blob_from_memory(audio_content, destination_blob_name)
+    return destination_blob_name
+
+
+def integrate_audio_into_story(
+    story: Story, character_voice_map: Dict[str, str]
+) -> Story:
+    """
+    Integrates audio files into the story by generating and uploading them,
+    then updates the story structure with the audio file locations.
+    """
+
+    # TODO: Implement logic to specify the types of exercises that should have audio generated
     for chapter in story.chapters:
+        chapter.chapter
         for block in chapter.blocks:
             if isinstance(block, StoryBlock):
                 for line in block.lines:
                     if line.audio is None:
-                        line.audio = text_to_speech_file(
+                        audio_content = text_to_speech(
                             line.text, "IKne3meq5aSn9XLyUdCD", "Charlie"
                         )
+                        line.audio = upload_audio_to_storage(audio_content, "Charlie")
             elif isinstance(block, ExerciseBlock):
                 for exercise in block.exercise_options:
                     if exercise.type in {
@@ -61,37 +94,26 @@ def integrate_audio_into_story(story: Story) -> Story:
                         "speak-replace",
                     }:
                         if exercise.audio is None:
-                            exercise.audio = text_to_speech_file(
+                            audio_content = text_to_speech(
                                 exercise.query or exercise.affected_text,
                                 "XB0fDUnXU5powFXDhCwa",
                                 "Charlotte",
+                            )
+                            exercise.audio = upload_audio_to_storage(
+                                audio_content, "Charlotte"
                             )
     return story
 
 
 if __name__ == "__main__":
-    # Example usage of get_audio_for_text
-    audio_file = text_to_speech_file(
-        "Skärgården är vacker på sommaren.",
-        "IKne3meq5aSn9XLyUdCD",
-        name="Charlie",
+    # Example of loading a story and integrating audio
+    story = Story(
+        # Populate with your story data
     )
-    print(f"Audio saved to {audio_file}")
 
+    updated_story = integrate_audio_into_story(story)
 
-# Sarah: Great, maybe Anna - EXAVITQu4vr4xnSDxMaL
-# Laura: bad - FGY2WhTYpPnrIDTdsKH5
-# Charlie: Great (narrator voice) - IKne3meq5aSn9XLyUdCD
-# George: Great (maybe Karl) - JBFqnCBsd6RMkjVDRZzb
-# Callum: Great (maybe narrator) - N2lVS1w4EtoT3dr4eOWO
-# Liam: Quite good (better as Karl) - TX3LPaxmHKxFdv7VOQHJ
-# Charlotte: Quite good (better as narrator) - XB0fDUnXU5powFXDhCwa
-# Alice: Bad - Xb7hH8MSUJpSbSDYk0k2
-# Matilda: Not great - XrExE9yKIg1WjnnlVkGX
-# Will: Great (Karl) - bIHbv24MWmeRgasZH58o
-# Jessica: Not great - cgSgspJ2msm6clMCkdW9
-# Chris: Good (maybe Karl) - iP95p4xoKVk53GoZ742B
-# Brian: Quite good (narrator) - nPczCjzI2devNBz1zQrb
-# Daniel; Awesome (narrator) -  onwK4e9ZLuTAKqWW03F9
-# Lily: Great (anna) - pFZP5JQG7iQjIQuC4Bku
-# Bill: Great (maybe narrator) - pqHfZKP75CvOlQylNhV4
+    # Save the updated story to a file or database as needed
+    # For example:
+    # with open("updated_story.json", "w") as f:
+    #     json.dump(updated_story.dict(), f)
