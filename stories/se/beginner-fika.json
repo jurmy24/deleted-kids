@@ -8,7 +8,7 @@
     {
       "chapter": 1,
       "title": "En dejt mellan Anna och Karl",
-      "summary": "Anna väntar på ett café i Stockholm på sin \"blind\" dejt Karl, som är försenad. De diskuterar transportmedel och sina matpreferenser medan de lär känna varandra.",
+      "summary": "Anna väntar på ett café i Stockholm på sin 'blind' dejt Karl, som är försenad. De diskuterar transportmedel och sina matpreferenser medan de lär känna varandra.",
       "blocks": [
         {
           "block_id": 1,
@@ -17,8 +17,8 @@
             {
               "line_id": 1,
               "character": "Narrator",
-              "text": "I dag skall Anna gå på “blind” fikadejt med Karl. Hon väntar i ett litet café som heter Kaffestugan i Stockholm. Klockan är 4:35 och Karl är 5 minuter sen.",
-              "audio": null
+              "text": "I dag skall Anna gå på 'blind' fikadejt med Karl. Hon väntar i ett litet café som heter Kaffestugan i Stockholm. Klockan är 4:35 och Karl är 5 minuter sen.",
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b1_l1_cNarrator.mp3"
             }
           ]
         },
@@ -303,6 +303,22 @@
               "audio": null,
               "action": "emphasize-text",
               "affected_text": "Jag bor faktiskt i Södertälje, runt en timme från Stockholm.",
+              "hints": null
+            },
+            {
+              "exercise_id": 1,
+              "type": "comp-listen",
+              "cefr": ["A1", "A2"],
+              "query": null,
+              "answer_options": [
+                "Jag tar en chokladboll och en kopp kaffe.",
+                "Jag tar en chokladkaka och en kopp kaffe.",
+                "Jag tar en chokladboll och en kopp te."
+              ],
+              "correct_answer": "Jag tar en chokladboll och en kopp kaffe.",
+              "audio": null,
+              "action": "hide-text",
+              "affected_text": "Jag tar en chokladboll och en kopp kaffe.",
               "hints": null
             }
           ]

@@ -69,3 +69,11 @@ class FirebaseStorage:
         contents = blob.download_as_bytes()
         print(f"Downloaded storage object {blob_name} from bucket {self.bucket.name}.")
         return contents
+
+
+if __name__ == "__main__":
+    firebase_storage = FirebaseStorage()
+    raw = firebase_storage.download_blob_into_memory(
+        "audio/se/1_fika_i_stockholm/chapter_1/b1_l1_cNarrator.mp3"
+    )
+    play(raw)

@@ -63,7 +63,7 @@ Go!
 ### Listening comprehension multiple choice
 
 - type: comp-listen
-- action: hide the last text of the previous story block and provide three alternative answers that look similar
+- action: hide the last text of the previous story block, but play it's audio and provide three alternative answers that look similar
 - evaluation: correct choice selection
 - description: an exercise to check the oral comprehension of a spoken section of the previous block
 - skip-condition: when audio is toggled off
