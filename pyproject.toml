@@ -12,6 +12,7 @@ python-dotenv = "^1.0.1"
 requests = "^2.32.3"
 elevenlabs = "^1.7.0"
 firebase-admin = "^6.5.0"
+numpy = "^2.1.0"
 
 
 [tool.poetry.group.dev.dependencies]
