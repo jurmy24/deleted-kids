@@ -144,12 +144,14 @@ class Chapter(BaseModel):
     chapter: int
     title: str
     summary: str  # A brief summary of the chapter
+    audio: Optional[Any] = None
     blocks: List[Union[StoryBlock, ExerciseBlock]]
 
 
 class Story(BaseModel):
     title: str
     description: str
+    audio: Optional[Any] = None
     language: Literal["en", "se", "fr"]
     story_id: int
     level: Literal["beginner", "intermediate", "advanced"]

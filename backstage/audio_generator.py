@@ -51,9 +51,9 @@ class AudioIntegrator:
         language: str,
         story_title: str,
         story_id: int,
-        chapter: int,
         character: str,  # character is the narrator if it is an exercise
-        block_id: int,
+        chapter: Optional[int] = None,
+        block_id: Optional[int] = None,
         exercise_id: Optional[int] = None,
         line_id: Optional[int] = None,
     ) -> str:
@@ -67,99 +67,101 @@ class AudioIntegrator:
         if line_id:
             extra_identifier = f"l{line_id}"
 
+        if chapter is None:
+            destination_blob_name = (
+                f"audio/{language}/{story_id}_{story_title.replace(" ", "_").lower()}/"
+                f"description_c{character.capitalize()}.mp3"
+            )
+            destination_blob_name = self.firebase_storage.upload_blob_from_memory(
+                audio_content, destination_blob_name
+            )
+            return destination_blob_name
+        
+        if block_id is None:
+            destination_blob_name = (
+                f"audio/{language}/{story_id}_{story_title.replace(" ", "_").lower()}/chapter_{chapter}/"
+                f"summary_c{character.capitalize()}.mp3"
+            )
+            destination_blob_name = self.firebase_storage.upload_blob_from_memory(
+                audio_content, destination_blob_name
+            )
+            return destination_blob_name
+
         destination_blob_name = (
             f"audio/{language}/{story_id}_{story_title.replace(" ", "_").lower()}/chapter_{chapter}/"
             f"b{block_id}_{extra_identifier}_c{character.capitalize()}.mp3"
         )
-        self.firebase_storage.upload_blob_from_memory(
+        destination_blob_name = self.firebase_storage.upload_blob_from_memory(
             audio_content, destination_blob_name
         )
         return destination_blob_name
 
-    def integrate_audio_into_story(
-        self, story: Story, character_voice_map: Dict[str, str]
-    ) -> Story:
+    def integrate_audio_into_story(self, story: Story, character_voice_map: Dict[str, str]) -> Story:
         """
         Integrates audio files into the story by generating and uploading them,
+        including for the story description and chapter summaries,
         then updates the story structure with the audio file locations.
         """
+        def process_line_or_exercise(text, voice_id, language, title, story_id, chapter, character, block_id=None, line_id=None, exercise_id=None):
+            if voice_id is None:
+                self.logger.error(f"Voice ID not found for character: {character}, in block {block_id}")
+                return None
+            audio_content = self.text_to_speech(text, voice_id)
+            return self.upload_audio_to_storage(
+                audio_content, language, title, story_id, character, chapter=chapter, block_id=block_id, exercise_id=exercise_id, line_id=line_id, 
+            )
 
-        # TODO: Add a check to see if the audio file identifier already exists in the storage
+        # Process Story Description Audio
+        story.audio = process_line_or_exercise(
+            story.description,
+            character_voice_map.get("Narrator"),
+            story.language,
+            story.title,
+            story.story_id,
+            chapter=None,
+            character="Narrator"
+        )
 
         total_blocks = sum(len(chapter.blocks) for chapter in story.chapters)
         with tqdm(total=total_blocks, desc="Integrating Audio") as pbar:
             for chapter in story.chapters:
-                if chapter.chapter != 1:
-                    continue
-                for block in chapter.blocks:
-                    if block.block_id != 1:
-                        continue
-                    try:
+                try:
+                    # Process Chapter Summary Audio
+                    chapter.audio = process_line_or_exercise(
+                        chapter.summary,
+                        character_voice_map.get("Narrator"),
+                        story.language,
+                        story.title,
+                        story.story_id,
+                        chapter.chapter,
+                        character="Narrator"
+                    )
+
+                    for block in chapter.blocks:
                         if isinstance(block, StoryBlock):
                             for line in block.lines:
                                 if line.audio is None:
-                                    voice_id = character_voice_map.get(line.character)
-
-                                    if voice_id is None:
-                                        self.logger.error(
-                                            f"Voice ID not found for character: {line.character}, "
-                                            f"in block {block.id} and line {line.id}"
-                                        )
-                                        continue  # skip and generate this line's audio later
-
-                                    audio_content = self.text_to_speech(
-                                        line.text, voice_id
-                                    )
-                                    line.audio = self.upload_audio_to_storage(
-                                        audio_content,
-                                        language=story.language,
-                                        story_title=story.title,
-                                        story_id=story.story_id,
-                                        chapter=chapter.chapter,
-                                        character=line.character,
-                                        block_id=block.block_id,
-                                        line_id=line.line_id,
+                                    line.audio = process_line_or_exercise(
+                                        line.text,
+                                        character_voice_map.get(line.character),
+                                        story.language, story.title, story.story_id,
+                                        chapter.chapter, line.character, block.block_id, line.line_id
                                     )
                         elif isinstance(block, ExerciseBlock):
                             for exercise in block.exercise_options:
-                                if exercise.type in {
-                                    "comp-mcq",
-                                    "comp-tf",
-                                    "speak-replace",
-                                    "speak-question",
-                                    "interact",
-                                }:
-                                    if exercise.audio is None:
-                                        voice_id = character_voice_map.get("Narrator")
-
-                                        if voice_id is None:
-                                            self.logger.error(
-                                                f"Voice ID not found for character: Narrator, "
-                                                f"in exercise block {block.id}"
-                                            )
-                                            continue  # skip and generate this line's audio later
-
-                                        audio_content = self.text_to_speech(
-                                            exercise.query,
-                                            voice_id,
-                                        )
-                                        exercise.audio = self.upload_audio_to_storage(
-                                            audio_content,
-                                            language=story.language,
-                                            story_title=story.title,
-                                            story_id=story.story_id,
-                                            chapter=chapter.chapter,
-                                            character="Narrator",
-                                            block_id=block.block_id,
-                                            exercise_id=exercise.exercise_id,
-                                        )
-                    except Exception as e:
-                        self.logger.error(
-                            f"Error processing block {block.id} in chapter {chapter.chapter}: {str(e)}"
-                        )
-                    finally:
-                        pbar.update(1)
+                                if exercise.type in {"comp-mcq", "comp-tf", "speak-replace", "speak-question", "interact"} and exercise.audio is None:
+                                    exercise.audio = process_line_or_exercise(
+                                        exercise.query,
+                                        character_voice_map.get("Narrator"),
+                                        story.language, story.title, story.story_id,
+                                        chapter.chapter, "Narrator", block.block_id, exercise_id=exercise.exercise_id
+                                    )
+                except Exception as e:
+                    self.logger.error(f"Error processing chapter {chapter.chapter}: {str(e)}")
+                finally:
+                    pbar.update(1)
         return story
+
 
 
 if __name__ == "__main__":

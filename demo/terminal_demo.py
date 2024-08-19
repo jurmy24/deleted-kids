@@ -1,14 +1,21 @@
 import random
 from typing import Literal
 
+from backstage.firebase_storage import FirebaseStorage
 from story_compiler import compile_json_to_story, read_json_file
 from backstage.schema import Exercise, ExerciseBlock, Story, StoryBlock
+from elevenlabs import play
 
 
 class StoryPlayer:
     def __init__(self, story: Story, user_level: Literal["A1", "A2", "B1", "B2", "C1"]):
         self.story = story
         self.user_level = user_level
+        self.audio_storage = FirebaseStorage()
+
+        play(self.audio_storage.download_blob_into_memory(story_object.audio))
+        print(f"Title: {self.story.title}")
+        input()
 
     def play_chapter(self, chapter_number: int):
         chapter = next(
@@ -20,7 +27,9 @@ class StoryPlayer:
 
         print(f"Title: {chapter.title}")
         print(f"Summary: {chapter.summary} \n\n")
+        play(self.audio_storage.download_blob_into_memory(chapter.audio))
         print("-" * 100)
+        input()
 
         for block in chapter.blocks:
             if block.block_type == "story":
@@ -30,7 +39,11 @@ class StoryPlayer:
 
     def display_story_block(self, block: StoryBlock):
         for line in block.lines:
-            input(f"{line.character}: {line.text}")
+            print(f"{line.character}: {line.text}")
+            if line.audio:
+                raw = self.audio_storage.download_blob_into_memory(line.audio)
+                play(raw)
+            input()
 
     def display_exercise_block(self, block: ExerciseBlock):
         # Filter exercises based on the user's level
@@ -52,6 +65,9 @@ class StoryPlayer:
         print(f"\tType: {exercise.type}")
         if exercise.query:
             print(f"\tQuestion: {exercise.query}")
+            if exercise.audio:
+                raw = self.audio_storage.download_blob_into_memory(exercise.audio)
+                play(raw)
         if exercise.answer_options:
             print("\tOptions:")
             for idx, option in enumerate(exercise.answer_options, 1):

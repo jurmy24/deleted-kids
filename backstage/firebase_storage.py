@@ -42,13 +42,22 @@ class FirebaseStorage:
         )
         print(f"File {source_file_name} uploaded to {destination_blob_name}.")
 
-    def upload_blob_from_memory(self, contents: bytes, destination_blob_name: str):
+    def upload_blob_from_memory(
+        self, contents: bytes, destination_blob_name: str, replace: bool = False
+    ):
         """
         Uploads content from memory to the Firebase Storage bucket.
         """
         blob = self.bucket.blob(destination_blob_name)
+
+        if blob.exists() and not replace:
+            print(f"{destination_blob_name} already exists in {self.bucket.name}.")
+            print(f"Renaming to {destination_blob_name}_")
+            destination_blob_name = f"{destination_blob_name}_"
+
         blob.upload_from_string(contents)
         print(f"{destination_blob_name} with contents uploaded to {self.bucket.name}.")
+        return destination_blob_name
 
     def download_blob(self, source_blob_name: str, destination_file_name: str):
         """

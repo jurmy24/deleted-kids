@@ -1,14 +1,16 @@
 {
   "title": "Fika i Stockholm",
-  "story_id": 1,
-  "language": "se",
   "description": "En berättelse om Annas och Karls blinda fikadejt på ett café i Stockholm.",
+  "audio": "audio/se/1_fika_i_stockholm/description_cNarrator.mp3",
+  "language": "se",
+  "story_id": 1,
   "level": "beginner",
   "chapters": [
     {
       "chapter": 1,
       "title": "En dejt mellan Anna och Karl",
       "summary": "Anna väntar på ett café i Stockholm på sin 'blind' dejt Karl, som är försenad. De diskuterar transportmedel och sina matpreferenser medan de lär känna varandra.",
+      "audio": "audio/se/1_fika_i_stockholm/chapter_1/summary_cNarrator.mp3",
       "blocks": [
         {
           "block_id": 1,
@@ -30,30 +32,33 @@
               "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad heter caféet där Anna väntar?",
               "answer_options": ["Kaffestugan", "Stockholm", "Café"],
               "correct_answer": "Kaffestugan",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e1_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 2,
               "type": "comp-tf",
               "cefr": ["A1"],
+              "skip_condition": null,
               "query": "Är Karl i tid?",
               "answer_options": ["Ja", "Nej"],
               "correct_answer": "Nej",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e2_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 3,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad betyder fika?",
               "answer_options": [
                 "att äta lite mat och dryck med en annan",
@@ -61,46 +66,49 @@
                 "att göra kaffe"
               ],
               "correct_answer": "att äta lite mat och dryck med en annan",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e3_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 4,
               "type": "comp-mcq",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": "Hur många minuter sen är Karl?",
               "answer_options": ["5 minuter", "10 minuter", "15 minuter"],
               "correct_answer": "5 minuter",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e4_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 5,
               "type": "comp-tf",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": "Väntar Anna utanför caféet?",
               "answer_options": ["Ja", "Nej"],
               "correct_answer": "Nej",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e5_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 6,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vilken tid är det när Anna väntar på Karl?",
               "answer_options": ["4:30", "4:35", "4:40"],
               "correct_answer": "4:35",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e6_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             }
           ]
         },
@@ -112,13 +120,13 @@
               "line_id": 1,
               "character": "Narrator",
               "text": "Plötsligt kommer Karl, en lång blond man, springande.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b3_l1_cNarrator.mp3"
             },
             {
               "line_id": 2,
               "character": "Karl",
               "text": "Förlåt! Min buss var sen.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b3_l2_cKarl.mp3"
             }
           ]
         },
@@ -130,63 +138,68 @@
               "exercise_id": 1,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Förlåt! Min buss var sen.",
-              "hints": null
+              "affected_text": "Förlåt! Min buss var sen."
             },
             {
               "exercise_id": 2,
               "type": "pronounce-deaf",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "hide-audio",
-              "affected_text": "Förlåt! Min buss var sen.",
-              "hints": null
+              "affected_text": "Förlåt! Min buss var sen."
             },
             {
               "exercise_id": 3,
               "type": "pronounce-rep",
               "cefr": ["A1"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Plötsligt kommer Karl, en lång blond man, springande.",
-              "hints": null
+              "affected_text": "Plötsligt kommer Karl, en lång blond man, springande."
             },
             {
               "exercise_id": 4,
               "type": "speak-question",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": "Vad skulle du säga om du var Karl och bussen var sen?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Tänk på att använda en ursäkt och förklara situationen."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b4_e4_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             },
             {
               "exercise_id": 5,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Plötsligt kommer Karl, en lång blond man, springande.",
-              "hints": null
+              "affected_text": "Plötsligt kommer Karl, en lång blond man, springande."
             }
           ]
         },
@@ -198,25 +211,25 @@
               "line_id": 1,
               "character": "Anna",
               "text": "Hej! Det går bra, jag kom precis. Bussar i Stockholm är ofta sena ändå. Jag föredrar att ta metro, det brukar vara snabbare.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b5_l1_cAnna.mp3"
             },
             {
               "line_id": 2,
               "character": "Karl",
               "text": "Jag bor faktiskt i Södertälje, runt en timme från Stockholm.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b5_l2_cKarl.mp3"
             },
             {
               "line_id": 3,
               "character": "Anna",
               "text": "Oj…Det var långt bort. Jag är glad att du kom då! Vad vill du ha att äta?",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b5_l3_cAnna.mp3"
             },
             {
               "line_id": 4,
               "character": "Karl",
               "text": "Jag tar en chokladboll och en kopp kaffe.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b5_l4_cKarl.mp3"
             }
           ]
         },
@@ -228,87 +241,94 @@
               "exercise_id": 1,
               "type": "speak-replace",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Säg vad du vill äta",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": "hide-all",
-              "affected_text": "Jag tar en chokladboll och en kopp kaffe.",
               "hints": [
                 "Jag vill äta en chokladboll/glass/sandwich",
                 "Jag tar gärna en chokladboll/glass/sandwich och en kopp kaffe/mjölk"
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b6_e1_cNarrator.mp3",
+              "action": "hide-all",
+              "affected_text": "Jag tar en chokladboll och en kopp kaffe."
             },
             {
               "exercise_id": 2,
               "type": "speak-question",
               "cefr": ["A1"],
+              "skip_condition": null,
               "query": "Hur svarar du när någon frågar vad du vill äta?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Du kan säga vad du vill ha och kanske lägga till en dryck."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b6_e2_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             },
             {
               "exercise_id": 3,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Oj…Det var långt bort. Jag är glad att du kom då! Vad vill du ha att äta?",
-              "hints": null
+              "affected_text": "Oj…Det var långt bort. Jag är glad att du kom då! Vad vill du ha att äta?"
             },
             {
               "exercise_id": 4,
               "type": "speak-question",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": "Vad skulle du säga om du bodde långt bort som Karl?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Tänk på att beskriva hur långt bort du bor och hur du kom hit."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b6_e4_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             },
             {
               "exercise_id": 5,
               "type": "speak-replace",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": "Ersätt 'Stockholm' med en annan stad och säg meningen.",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": "hide-all",
-              "affected_text": "Bussar i Stockholm är ofta sena ändå. Jag föredrar att ta metro, det brukar vara snabbare.",
               "hints": [
                 "Du kan använda namn som 'Göteborg', 'Malmö', eller 'Uppsala'."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b6_e5_cNarrator.mp3",
+              "action": "hide-all",
+              "affected_text": "Bussar i Stockholm är ofta sena ändå. Jag föredrar att ta metro, det brukar vara snabbare."
             },
             {
               "exercise_id": 6,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Jag bor faktiskt i Södertälje, runt en timme från Stockholm.",
-              "hints": null
+              "affected_text": "Jag bor faktiskt i Södertälje, runt en timme från Stockholm."
             },
             {
               "exercise_id": 1,
               "type": "comp-listen",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": [
                 "Jag tar en chokladboll och en kopp kaffe.",
@@ -316,10 +336,10 @@
                 "Jag tar en chokladboll och en kopp te."
               ],
               "correct_answer": "Jag tar en chokladboll och en kopp kaffe.",
+              "hints": null,
               "audio": null,
               "action": "hide-text",
-              "affected_text": "Jag tar en chokladboll och en kopp kaffe.",
-              "hints": null
+              "affected_text": "Jag tar en chokladboll och en kopp kaffe."
             }
           ]
         },
@@ -331,19 +351,19 @@
               "line_id": 1,
               "character": "Anna",
               "text": "Låter som ett bra val. Jag skall beställa en kaffe och en kanelbulle.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b7_l1_cAnna.mp3"
             },
             {
               "line_id": 2,
               "character": "Narrator",
               "text": "Någon minut senare kommer en servitris som tar beställningen och går in till köket.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b7_l2_cNarrator.mp3"
             },
             {
               "line_id": 3,
               "character": "Anna",
               "text": "Jag undrar Karl, hur lång är du? Du kom ju nästan inte genom dörren!",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b7_l3_cAnna.mp3"
             }
           ]
         },
@@ -355,37 +375,40 @@
               "exercise_id": 1,
               "type": "pronounce-rep",
               "cefr": ["A1"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Du kom ju nästan inte genom dörren!",
-              "hints": null
+              "affected_text": "Du kom ju nästan inte genom dörren!"
             },
             {
               "exercise_id": 2,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Jag undrar Karl, hur lång är du? Du kom ju nästan inte genom dörren!",
-              "hints": null
+              "affected_text": "Jag undrar Karl, hur lång är du? Du kom ju nästan inte genom dörren!"
             },
             {
               "exercise_id": 3,
               "type": "pronounce-deaf",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "hide-audio",
-              "affected_text": "Jag undrar Karl, hur lång är du? Du kom ju nästan inte genom dörren!",
-              "hints": null
+              "affected_text": "Jag undrar Karl, hur lång är du? Du kom ju nästan inte genom dörren!"
             }
           ]
         },
@@ -397,7 +420,7 @@
               "line_id": 1,
               "character": "Karl",
               "text": "Ja, jag är ganska lång, 196 centimeter… Men det är bra för sport!",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b9_l1_cKarl.mp3"
             }
           ]
         },
@@ -413,13 +436,13 @@
               "query": "I vilka sporter tycker du att det är bra att vara lång?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Jag tycker att basket är bra för långa personer.",
                 "Handboll"
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_1/b10_e1_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             }
           ]
         }
@@ -429,6 +452,7 @@
       "chapter": 2,
       "title": "Sport och drama",
       "summary": "Anna och Karl diskuterar sport, deras mat anländer, och Anna betalar när Karl glömmer sin plånbok. De bestämmer sig för att ta en promenad efteråt.",
+      "audio": "audio/se/1_fika_i_stockholm/chapter_2/summary_cNarrator.mp3",
       "blocks": [
         {
           "block_id": 11,
@@ -438,7 +462,7 @@
               "line_id": 1,
               "character": "Narrator",
               "text": "Efter Karls kommentar om hans längd startades en diskussion om sport. Anna spelar mycket handboll och undrar vilken sport Karl tycker om medan de väntar på sin fika.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b11_l1_cNarrator.mp3"
             }
           ]
         },
@@ -450,64 +474,69 @@
               "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad handlar Anna och Karls samtal om?",
               "answer_options": ["Sport", "Fika", "Diskussion"],
               "correct_answer": "Sport",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b12_e1_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vilken sport spelar Anna?",
               "answer_options": ["Basket", "Fotboll", "Handboll"],
               "correct_answer": "Handboll",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b12_e2_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 3,
               "type": "interact",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vilken sport tror du Anna gillar bäst?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Jag tror att Anna gillar handboll bäst.",
                 "Jag tror att Anna gillar basket bäst."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b12_e3_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             },
             {
               "exercise_id": 4,
               "type": "comp-mcq",
               "cefr": ["A1"],
+              "skip_condition": null,
               "query": "Vad väntar Anna och Karl på?",
               "answer_options": ["Deras buss", "Deras fika", "Deras vänner"],
               "correct_answer": "Deras fika",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b12_e4_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 5,
               "type": "speak-question",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad gillar du för sport?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
+              "hints": ["Svara med vad du tycker om att göra på fritiden."],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b12_e5_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": ["Svara med vad du tycker om att göra på fritiden."]
+              "affected_text": null
             }
           ]
         },
@@ -519,13 +548,13 @@
               "line_id": 1,
               "character": "Karl",
               "text": "Du vet, jag spelade basket på gymnasiet. Det hjälpte mig att vara så lång!",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b13_l1_cKarl.mp3"
             },
             {
               "line_id": 2,
               "character": "Anna",
               "text": "Det tror jag inte påverkar din längd… Du spelade väl basket på grund av att du var lång?",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b13_l2_cAnna.mp3"
             }
           ]
         },
@@ -537,6 +566,7 @@
               "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad betyder 'gymnasiet'?",
               "answer_options": [
                 "en skola för yngre barn",
@@ -544,15 +574,16 @@
                 "en plats för sportevenemang"
               ],
               "correct_answer": "en skola för ungdomar efter grundskolan",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b14_e1_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad tror Anna om längd och basket?",
               "answer_options": [
                 "Hon tror basket påverkar längden",
@@ -560,37 +591,39 @@
                 "Hon vet inte"
               ],
               "correct_answer": "Hon tror inte basket påverkar längden",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b14_e2_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 3,
               "type": "speak-question",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": "Vad tycker du om Annas kommentar om längd och sport?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Jag tycker att basket är bra för långa personer.",
                 "Jag håller med Anna."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b14_e3_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             },
             {
               "exercise_id": 4,
               "type": "pronounce-rep",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Det tror jag inte påverkar din längd… Du spelade väl basket på grund av att du var lång?",
-              "hints": null
+              "affected_text": "Det tror jag inte påverkar din längd… Du spelade väl basket på grund av att du var lång?"
             }
           ]
         },
@@ -602,31 +635,31 @@
               "line_id": 1,
               "character": "Karl",
               "text": "Jag tror absolut att man blir längre av att spela basket. Jag är ett levande exempel.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b15_l1_cKarl.mp3"
             },
             {
               "line_id": 2,
               "character": "Anna",
               "text": "Uh… Jag tror inte på det en sekund…",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b15_l2_cAnna.mp3"
             },
             {
               "line_id": 3,
               "character": "Narrator",
               "text": "Anna börjar bli lite irriterad av diskussionen så hon ändrar ämnet.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b15_l3_cNarrator.mp3"
             },
             {
               "line_id": 4,
               "character": "Anna",
               "text": "Jag spelar väldigt mycket handboll i min fritid. Jag tycker det är likt basket. Det går väldigt fort, eller hur?",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b15_l4_cAnna.mp3"
             },
             {
               "line_id": 5,
               "character": "Karl",
               "text": "Jo verkligen! …",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b15_l5_cKarl.mp3"
             }
           ]
         },
@@ -638,16 +671,17 @@
               "exercise_id": 1,
               "type": "speak-question",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vilken sport tycker du är roligast?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Jag tycker att fotboll är roligast.",
                 "Jag tycker att basket är roligast."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b16_e1_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             }
           ]
         },
@@ -659,19 +693,19 @@
               "line_id": 1,
               "character": "Narrator",
               "text": "Plötsligt kommer servitrisen med två kaffeer, en chokladboll, och en kanelbulle.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b17_l1_cNarrator.mp3"
             },
             {
               "line_id": 2,
               "character": "Anna",
               "text": "Nice! Varm kaffe är så mysigt.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b17_l2_cAnna.mp3"
             },
             {
               "line_id": 3,
               "character": "Karl",
               "text": "Ah jo verkligen.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b17_l3_cKarl.mp3"
             }
           ]
         },
@@ -683,13 +717,14 @@
               "exercise_id": 1,
               "type": "pronounce-deaf",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "hide-audio",
-              "affected_text": "Ah jo, verkligen.",
-              "hints": null
+              "affected_text": "Ah jo, verkligen."
             }
           ]
         },
@@ -701,19 +736,19 @@
               "line_id": 1,
               "character": "Narrator",
               "text": "Karl och Anna sitter i 20 minuter till och pratar om sport och livet. När de är klara är det tid att betala.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b19_l1_cNarrator.mp3"
             },
             {
               "line_id": 2,
               "character": "Karl",
               "text": "Å nej! Jag glömde min plånbok!",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b19_l2_cKarl.mp3"
             },
             {
               "line_id": 3,
               "character": "Anna",
               "text": "Verkligen? Hmm, jag får väl betala då. Bra start…",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b19_l3_cAnna.mp3"
             }
           ]
         },
@@ -725,40 +760,43 @@
               "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vem erbjuder sig att betala?",
               "answer_options": ["Anna", "Karl", "Servitrisen"],
               "correct_answer": "Anna",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b20_e1_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 2,
               "type": "pronounce-rep",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
               "answer_options": null,
               "correct_answer": null,
+              "hints": null,
               "audio": null,
               "action": "emphasize-text",
-              "affected_text": "Verkligen? Hmm, jag får väl betala då.",
-              "hints": null
+              "affected_text": "Verkligen? Hmm, jag får väl betala då."
             },
             {
               "exercise_id": 3,
               "type": "speak-question",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": "Tycker du att det är viktigt att betala för sig själv på en dejt? Varför eller varför inte?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Jag tycker att det är viktigt eftersom...",
                 "Det är mannen som borde betala."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_2/b20_e3_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             }
           ]
         }
@@ -768,6 +806,7 @@
       "chapter": 3,
       "title": "Promenad och ex",
       "summary": "Anna och Karl tar en promenad i Stockholm efter deras fika och stöter oväntat på Karls ex, Maria, vilket får dem att reflektera över relationer.",
+      "audio": "audio/se/1_fika_i_stockholm/chapter_3/summary_cNarrator.mp3",
       "blocks": [
         {
           "block_id": 21,
@@ -777,19 +816,19 @@
               "line_id": 1,
               "character": "Narrator",
               "text": "Efter att ha betalat notan lämnar Anna och Karl Kaffestugan. Det är en vacker kväll i Stockholm, och de bestämmer sig för att ta en promenad.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b21_l1_cNarrator.mp3"
             },
             {
               "line_id": 2,
               "character": "Anna",
               "text": "Det var en trevlig fika, trots att du glömde din plånbok, Karl! Tur att jag hade med mig min.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b21_l2_cAnna.mp3"
             },
             {
               "line_id": 3,
               "character": "Karl",
               "text": "Ja, verkligen pinsamt. Jag får bjuda nästa gång! Men det var ändå trevligt att prata om sport.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b21_l3_cKarl.mp3"
             }
           ]
         },
@@ -801,6 +840,7 @@
               "exercise_id": 1,
               "type": "comp-mcq",
               "cefr": ["A1"],
+              "skip_condition": null,
               "query": "Vad bestämmer sig Anna och Karl för att göra efter fikat?",
               "answer_options": [
                 "Ta en promenad",
@@ -808,15 +848,16 @@
                 "Gå till ett museum"
               ],
               "correct_answer": "Ta en promenad",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b22_e1_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             },
             {
               "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad betyder \"promenad\"?",
               "answer_options": [
                 "Att gå en tur",
@@ -824,10 +865,10 @@
                 "Att dansa"
               ],
               "correct_answer": "Att gå en tur",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b22_e2_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             }
           ]
         },
@@ -839,13 +880,13 @@
               "line_id": 1,
               "character": "Narrator",
               "text": "När de går längs gatan i centrala Stockholm passerar de restauranger. Plötsligt stannar Karl när de passerar ett kafé. Han ser hans ex, Maria, som sitter där med några vänner.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b23_l1_cNarrator.mp3"
             },
             {
               "line_id": 2,
               "character": "Karl",
               "text": "Oj, det där är Maria... mitt ex.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b23_l2_cKarl.mp3"
             }
           ]
         },
@@ -857,17 +898,20 @@
               "exercise_id": 1,
               "type": "pronounce-deaf",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
-              "audio": null,
+              "answer_options": null,
               "correct_answer": null,
+              "hints": null,
+              "audio": null,
               "action": "hide-audio",
-              "affected_text": "Oj, det där är Maria... mitt ex.",
-              "hints": null
+              "affected_text": "Oj, det där är Maria... mitt ex."
             },
             {
               "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1"],
+              "skip_condition": null,
               "query": "Vem ser Karl när de passerar kaféet?",
               "answer_options": [
                 "Hans ex, Maria",
@@ -875,10 +919,10 @@
                 "En kollega"
               ],
               "correct_answer": "Hans ex, Maria",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b24_e2_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             }
           ]
         },
@@ -890,49 +934,49 @@
               "line_id": 1,
               "character": "Anna",
               "text": "Oj då. Är det okej? Du verkar lite nervös.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b25_l1_cAnna.mp3"
             },
             {
               "line_id": 2,
               "character": "Karl",
               "text": "Ja, det är bara oväntat att se henne här. Vi har inte pratat på ett tag.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b25_l2_cKarl.mp3"
             },
             {
               "line_id": 3,
               "character": "Narrator",
               "text": "Anna ler lite. Hon kan förstå att det känns konstigt för Karl, men hon försöker göra situationen lite lättare.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b25_l3_cNarrator.mp3"
             },
             {
               "line_id": 4,
               "character": "Anna",
               "text": "Vill du gå och säga hej, eller är det bättre att vi går?",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b25_l4_cAnna.mp3"
             },
             {
               "line_id": 5,
               "character": "Karl",
               "text": "Kanske det är bäst att vi går vidare. Jag vill inte störa dem.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b25_l5_cKarl.mp3"
             },
             {
               "line_id": 6,
               "character": "Narrator",
               "text": "De fortsätter att gå och pratar om andra saker. Karl verkar mer avslappnad när de lämnar kaféet bakom sig. Plötsligt vibrerar Annas telefon i hennes ficka. Hon tar upp den och ser ett meddelande från sitt eget ex.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b25_l6_cNarrator.mp3"
             },
             {
               "line_id": 7,
               "character": "Anna",
               "text": "Ha! Nu fick jag ett meddelande från mitt ex! Det verkar som om vi har ett tema för kvällen, eller hur?",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b25_l7_cAnna.mp3"
             },
             {
               "line_id": 8,
               "character": "Karl",
               "text": "Haha, vad? Vad skriver han?",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b25_l8_cKarl.mp3"
             }
           ]
         },
@@ -944,21 +988,23 @@
               "exercise_id": 1,
               "type": "interact",
               "cefr": ["A2"],
+              "skip_condition": null,
               "query": "Vilken typ av meddelanden gillar du att få, och från vem?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Jag gillar att få meddelanden från mina vänner.",
                 "Jag gillar att få meddelanden från min familj."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b26_e1_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             },
             {
               "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad händer med Anna när hon får ett meddelande?",
               "answer_options": [
                 "Hon skrattar och nämner att det är från hennes ex",
@@ -966,10 +1012,10 @@
                 "Hon ignorerar meddelandet"
               ],
               "correct_answer": "Hon skrattar och nämner att det är från hennes ex",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b26_e2_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             }
           ]
         },
@@ -981,13 +1027,13 @@
               "line_id": 1,
               "character": "Narrator",
               "text": "Anna ler när hon läser meddelandet. Det är inget viktigt, bara ett gammalt foto från en resa de gjorde tillsammans. Hon stoppar tillbaka telefonen i fickan och fortsätter att gå med Karl.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b27_l1_cNarrator.mp3"
             },
             {
               "line_id": 2,
               "character": "Anna",
               "text": "Det var bara ett gammalt foto från en resa. Inget speciellt.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b27_l2_cAnna.mp3"
             }
           ]
         },
@@ -999,12 +1045,14 @@
               "exercise_id": 1,
               "type": "pronounce-deaf",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
-              "audio": null,
+              "answer_options": null,
               "correct_answer": null,
+              "hints": null,
+              "audio": null,
               "action": "hide-audio",
-              "affected_text": "Det var bara ett gammalt foto. Inget speciellt.",
-              "hints": null
+              "affected_text": "Det var bara ett gammalt foto. Inget speciellt."
             }
           ]
         },
@@ -1016,19 +1064,19 @@
               "line_id": 1,
               "character": "Karl",
               "text": "Ja, livet har en rolig timing ibland.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b29_l1_cKarl.mp3"
             },
             {
               "line_id": 2,
               "character": "Narrator",
               "text": "Anna och Karl fortsätter promenera i Stockholm och diskuterar många olika ämnen. När de till slut når tunnelbanan är det dags att säga hej då.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b29_l2_cNarrator.mp3"
             },
             {
               "line_id": 3,
               "character": "Anna",
               "text": "Tack för en trevlig kväll, Karl.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b29_l3_cAnna.mp3"
             }
           ]
         },
@@ -1040,12 +1088,14 @@
               "exercise_id": 1,
               "type": "pronounce-deaf",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": null,
-              "audio": null,
+              "answer_options": null,
               "correct_answer": null,
+              "hints": null,
+              "audio": null,
               "action": "hide-audio",
-              "affected_text": "Tack för en trevlig kväll, Karl.",
-              "hints": null
+              "affected_text": "Tack för en trevlig kväll, Karl."
             }
           ]
         },
@@ -1057,7 +1107,7 @@
               "line_id": 1,
               "character": "Karl",
               "text": "Ja, tack själv, Anna. Vi får göra om det någon gång. Och jag lovar att inte glömma plånboken!",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b31_l1_cKarl.mp3"
             }
           ]
         },
@@ -1069,21 +1119,23 @@
               "exercise_id": 1,
               "type": "interact",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Hur avslutar du en trevlig kväll med en vän?",
               "answer_options": null,
               "correct_answer": null,
-              "audio": null,
-              "action": null,
-              "affected_text": null,
               "hints": [
                 "Jag tackar för kvällen.",
                 "Jag säger att jag har haft en trevlig kväll och att vi får ses snart igen."
-              ]
+              ],
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b32_e1_cNarrator.mp3",
+              "action": null,
+              "affected_text": null
             },
             {
               "exercise_id": 2,
               "type": "comp-mcq",
               "cefr": ["A1", "A2"],
+              "skip_condition": null,
               "query": "Vad lovar Karl?",
               "answer_options": [
                 "Att ha en bra dag",
@@ -1091,10 +1143,10 @@
                 "Att han inte kommer glömma plånboken"
               ],
               "correct_answer": "Att han inte kommer glömma plånboken",
-              "audio": null,
+              "hints": null,
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b32_e2_cNarrator.mp3",
               "action": null,
-              "affected_text": null,
-              "hints": null
+              "affected_text": null
             }
           ]
         },
@@ -1106,7 +1158,7 @@
               "line_id": 1,
               "character": "Narrator",
               "text": "Anna och Karl skiljs åt med ett leende.",
-              "audio": null
+              "audio": "audio/se/1_fika_i_stockholm/chapter_3/b33_l1_cNarrator.mp3"
             }
           ]
         }
