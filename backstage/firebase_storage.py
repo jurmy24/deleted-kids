@@ -1,6 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, storage
 from elevenlabs import play
+import logging
 
 
 class FirebaseStorage:
@@ -26,7 +27,10 @@ class FirebaseStorage:
             cred = credentials.Certificate(service_account_path)
             firebase_admin.initialize_app(cred, {"storageBucket": storage_bucket})
             cls._instance.bucket = storage.bucket()
-            print(f"Bucket '{cls._instance.bucket.name}' initialized successfully.")
+            cls._instance.logger = logging.getLogger(__name__)
+            cls._instance.logger.info(
+                f"Bucket '{cls._instance.bucket.name}' initialized successfully."
+            )
 
         return cls._instance
 
@@ -40,7 +44,10 @@ class FirebaseStorage:
         blob.upload_from_filename(
             source_file_name, if_generation_match=generation_match_precondition
         )
-        print(f"File {source_file_name} uploaded to {destination_blob_name}.")
+
+        self.logger.debug(
+            f"File {source_file_name} uploaded to {destination_blob_name}."
+        )
 
     def upload_blob_from_memory(
         self, contents: bytes, destination_blob_name: str, replace: bool = False
@@ -51,12 +58,16 @@ class FirebaseStorage:
         blob = self.bucket.blob(destination_blob_name)
 
         if blob.exists() and not replace:
-            print(f"{destination_blob_name} already exists in {self.bucket.name}.")
-            print(f"Renaming to {destination_blob_name}_")
+            self.logger.warning(
+                f"{destination_blob_name} already exists in {self.bucket.name}."
+            )
+            self.logger.warning(f"Renaming to {destination_blob_name}_")
             destination_blob_name = f"{destination_blob_name}_"
 
         blob.upload_from_string(contents)
-        print(f"{destination_blob_name} with contents uploaded to {self.bucket.name}.")
+        self.logger.debug(
+            f"{destination_blob_name} with contents uploaded to {self.bucket.name}."
+        )
         return destination_blob_name
 
     def download_blob(self, source_blob_name: str, destination_file_name: str):
@@ -65,7 +76,7 @@ class FirebaseStorage:
         """
         blob = self.bucket.blob(source_blob_name)
         blob.download_to_filename(destination_file_name)
-        print(
+        self.logger.debug(
             f"Downloaded storage object {source_blob_name} from bucket "
             f"{self.bucket.name} to local file {destination_file_name}."
         )
@@ -76,7 +87,9 @@ class FirebaseStorage:
         """
         blob = self.bucket.blob(blob_name)
         contents = blob.download_as_bytes()
-        print(f"Downloaded storage object {blob_name} from bucket {self.bucket.name}.")
+        self.logger.debug(
+            f"Downloaded storage object {blob_name} from bucket {self.bucket.name}."
+        )
         return contents
 
 

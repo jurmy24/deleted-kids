@@ -17,18 +17,16 @@ class Exercise(BaseModel):
     cefr: List[Literal["A1", "A2", "B1", "B2", "C1"]]
     skip_condition: Optional[Literal["if-not-voice", "if-not-audio"]] = None
     query: Optional[str] = None
-    answer_options: Optional[List[str]] = (
-        None  # TODO: This should be a dict with key as the identifier and value as the text
-    )
-    correct_answer: Optional[str] = (
-        None  # TODO: This should be the identifier of the correct answer (eg. an int)
-    )
+    answer_options: Optional[List[Dict[str, Any]]] = None
     hints: Optional[List[str]] = None
     audio: Optional[Any] = None
     action: Optional[
         Literal["hide-text", "hide-audio", "emphasize-text", "hide-all"]
     ] = Field(default=None)
-    affected_text: Optional[str] = Field(default=None)
+    affected_block: Optional[str] = Field(
+        default=None,
+        description="Should follow the format 'StoryID-ChapterNumber-BlockID-LineID', e.g., '1-1-2-1'.",
+    )
 
     # Main validator that checks all conditions
     @model_validator(mode="before")
@@ -37,7 +35,6 @@ class Exercise(BaseModel):
         values = cls.check_action(values)
         values = cls.check_hints(values)
         values = cls.check_affected_text(values)
-        values = cls.check_correct_answer(values)
         return values
 
     @classmethod
@@ -101,23 +98,7 @@ class Exercise(BaseModel):
 
         return values
 
-    @classmethod
-    def check_correct_answer(cls, values: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Validate that correct_answer is provided for certain exercise types.
-        Raises ValueError if correct_answer is required but not provided.
-        """
-        exercise_type = values.get("type")
-        correct_answer = values.get("correct_answer")
-
-        # Check for correct_answer requirement
-        if exercise_type in {"comp-mcq", "comp-tf", "comp-listen"}:
-            if correct_answer is None:
-                raise ValueError(
-                    f"correct_answer is required for exercise type '{exercise_type}'"
-                )
-
-        return values
+    # TODO: Add a method to validate the affected_block
 
 
 # Define a base model for common attributes
