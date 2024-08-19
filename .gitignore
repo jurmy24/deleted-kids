@@ -177,3 +177,6 @@ pyrightconfig.json
 
 # Firebase service account
 utter-firebase-service-account.json
+
+# Hide scrap script file
+scrap.py
