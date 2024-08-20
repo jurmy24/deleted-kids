@@ -13,10 +13,13 @@ requests = "^2.32.3"
 elevenlabs = "^1.7.0"
 firebase-admin = "^6.5.0"
 numpy = "^2.1.0"
+pydub = "^0.25.1"
+pygame = "^2.6.0"
 
 
 [tool.poetry.group.dev.dependencies]
 tqdm = "^4.66.5"
+colorama = "^0.4.6"
 
 [build-system]
 requires = ["poetry-core"]
