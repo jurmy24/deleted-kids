@@ -1,6 +1,4 @@
-from typing import Any
-from pydantic import BaseModel, Field, validator
-
+from colorama import Fore, Style
 from backstage.schema import Exercise
 
 
@@ -29,131 +27,119 @@ class ExerciseManager:
         elif exercise_type == "pronounce-deaf":
             self.handle_pronounce_deaf(exercise)
         else:
-            print(f"Unknown exercise type: {exercise_type}")
+            print(f"{Fore.RED}Unknown exercise type: {exercise_type}{Style.RESET_ALL}")
 
-    def handle_comp_mcq(self, exercise: "Exercise"):
-        """
-        Handles a multiple-choice question (MCQ) exercise.
-        """
-        print("\tMultiple Choice Exercise:")
-        if exercise.query:
-            print(f"\tQuestion: {exercise.query}")
+    def handle_comp_mcq(self, exercise: Exercise):
+        # Handles a multiple-choice question (MCQ) exercise.
+
+        print(f"\t{Fore.GREEN}Question:{Style.RESET_ALL} {exercise.query}")
         if exercise.answer_options:
-            print("\tOptions:")
-            for idx, option in enumerate(exercise.answer_options, 1):
-                print(f"\t{idx}. {option['text']}")
+            for option in exercise.answer_options:
+                idx = option["id"]
+                text = option["text"]
+                print(f"\t{idx}. {text}")
+
         self._evaluate_user_answer(exercise)
 
-    def handle_comp_tf(self, exercise: "Exercise"):
-        """
-        Handles a true/false exercise.
-        """
-        print("\tTrue/False Exercise:")
-        if exercise.query:
-            print(f"\tStatement: {exercise.query}")
-        print("\tOptions: True / False")
-        self._evaluate_user_answer(exercise)
+    def handle_comp_tf(self, exercise: Exercise):
+        # Handles a true-false question
 
-    def handle_speak_replace(self, exercise: "Exercise"):
-        """
-        Handles a speak-and-replace exercise.
-        """
+        self.handle_comp_mcq(exercise)
+
+    def handle_speak_replace(self, exercise: Exercise):
+        # Handles a speak-and-replace exercise.
+
         print("\tSpeak-and-Replace Exercise:")
         if exercise.query:
             print(f"\tPrompt: {exercise.query}")
         print("\tTry to speak the correct phrase.")
         self._evaluate_user_speech(exercise)
 
-    def handle_speak_question(self, exercise: "Exercise"):
-        """
-        Handles a speak-and-answer question exercise.
-        """
+    def handle_speak_question(self, exercise: Exercise):
+        # Handles a speak-and-answer question exercise.
+
         print("\tSpeak-and-Answer Question Exercise:")
         if exercise.query:
             print(f"\tQuestion: {exercise.query}")
         print("\tRespond by speaking your answer.")
         self._evaluate_user_speech(exercise)
 
-    def handle_interact(self, exercise: "Exercise"):
-        """
-        Handles an interactive exercise.
-        """
+    def handle_interact(self, exercise: Exercise):
+        # Handles an interactive exercise.
         print("\tInteractive Exercise:")
         if exercise.query:
             print(f"\tInteraction prompt: {exercise.query}")
         print("\tEngage with the prompt interactively.")
         self._evaluate_interaction(exercise)
 
-    def handle_comp_listen(self, exercise: "Exercise"):
-        """
-        Handles a listening comprehension exercise.
-        """
+    def handle_comp_listen(self, exercise: Exercise) -> None:
+        # Handles a listening comprehension exercise.
         print("\tListening Comprehension Exercise:")
-        if exercise.query:
-            print(f"\tListen and respond: {exercise.query}")
-        self._play_affected_block(exercise)
 
-    def handle_pronounce_rep(self, exercise: "Exercise"):
-        """
-        Handles a pronunciation repetition exercise.
-        """
+        if exercise.answer_options:
+            for option in exercise.answer_options:
+                idx = option["id"]
+                text = option["text"]
+                print(f"\t{idx}. {text}")
+
+            self._evaluate_user_answer(exercise)
+
+    def handle_pronounce_rep(self, exercise: Exercise):
+        # Handles a pronunciation repetition exercise.
         print("\tPronunciation Repetition Exercise:")
         if exercise.query:
             print(f"\tRepeat after: {exercise.query}")
-        self._play_affected_block(exercise)
+        self._play_affected_line(exercise)
 
-    def handle_pronounce_deaf(self, exercise: "Exercise"):
-        """
-        Handles a pronunciation deaf exercise.
-        """
+    def handle_pronounce_deaf(self, exercise: Exercise):
+        # Handles a pronunciation deaf exercise.
         print("\tPronunciation Deaf Exercise:")
         if exercise.query:
             print(f"\tRepeat after: {exercise.query}")
-        self._play_affected_block(exercise)
+        self._play_affected_line(exercise)
 
-    def _evaluate_user_answer(self, exercise: "Exercise"):
-        """
-        A private method to evaluate the user's answer for text-based exercises.
-        """
-        user_answer = input("\tYour answer: ")
-        correct_answer = exercise.correct_answer
-        if user_answer.lower() in (
-            str(correct_answer).lower(),
-            str(exercise.answer_options.index(correct_answer) + 1),
-        ):
-            print("\tCorrect!")
-        else:
-            print(f"\tIncorrect. The correct answer is: {correct_answer}")
+    def _evaluate_user_answer(self, exercise: Exercise):
+        # A private method to evaluate the user's answer for text-based exercises.
 
-    def _evaluate_user_speech(self, exercise: "Exercise"):
-        """
-        A private method to simulate speech evaluation.
-        This can be expanded with actual speech recognition in a real application.
-        """
+        user_answer = input("\tAnswer with the ID: ")
+        is_correct = False
+        while is_correct == False:
+            try:
+                # TODO: Redesign the dictionary to be of the format {id: {text: str, is_correct: bool}} so you can just write answer_options[1].is_correct
+                for option in exercise.answer_options:
+                    if option["id"] == int(user_answer):
+                        is_correct = bool(option["is_correct"])
+                        if is_correct:
+                            print(f"\t{Fore.GREEN}Correct!{Style.RESET_ALL}")
+                        else:
+                            print(f"\t{Fore.RED}Incorrect.{Style.RESET_ALL}")
+                            user_answer = input("\tAnswer with the ID: ")
+            except:
+                print(f"\tInvalid answer. Please enter a valid option ID.")
+                user_answer = input("\tAnswer with the ID: ")
+
+    def _evaluate_user_speech(self, exercise: Exercise):
+        # A private method to simulate speech evaluation.
         input("\tPress Enter when you are ready to speak...")
         print(
             "\t[Simulated speech recognition]"
         )  # Placeholder for actual speech recognition
-        print(f"\tExpected correct phrase: {exercise.correct_answer}")
+        print(f"\tExpected correct phrase: {exercise.answer_options}")
 
-    def _evaluate_interaction(self, exercise: "Exercise"):
-        """
-        A private method to handle user interaction.
-        """
+    def _evaluate_interaction(self, exercise: Exercise):
+        # A private method to handle user interaction.
         input("\tPress Enter to engage with the prompt...")
         print(
             "\t[Simulated interaction handling]"
         )  # Placeholder for actual interaction logic
         print("\tInteraction complete.")
 
-    def _play_affected_block(self, exercise: "Exercise"):
-        """
-        Plays or emphasizes the affected block based on the exercise configuration.
-        """
-        if exercise.affected_block:
-            print(f"\tRefer to block: {exercise.affected_block}")
+    def _play_affected_line(self, exercise: Exercise):
+        # Plays or emphasizes the affected block based on the exercise configuration.
+        if exercise.affected_line:
+            print(f"\tRefer to block: {exercise.affected_line}")
             # Simulate fetching and playing the affected block
-            print(f"\t[Simulated playback for block {exercise.affected_block}]")
+            print(f"\t[Simulated playback for block {exercise.affected_line}]")
         else:
             print("\tNo affected block specified.")
 
@@ -173,7 +159,7 @@ if __name__ == "__main__":
             {"id": 4, "text": "Rome"},
         ],
         correct_answer=3,
-        affected_block="1-1-story-1",
+        affected_line="1-1-story-1",
     )
 
     manager = ExerciseManager()

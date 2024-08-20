@@ -23,7 +23,7 @@ class Exercise(BaseModel):
     action: Optional[
         Literal["hide-text", "hide-audio", "emphasize-text", "hide-all"]
     ] = Field(default=None)
-    affected_block: Optional[str] = Field(
+    affected_line: Optional[str] = Field(
         default=None,
         description="Should follow the format 'StoryID-ChapterNumber-BlockID-LineID', e.g., '1-1-2-1'.",
     )
@@ -82,7 +82,7 @@ class Exercise(BaseModel):
 
         return values
 
-    # TODO: Add a method to validate the affected_block
+    # TODO: Add a method to validate the affected_line
 
 
 # Define a base model for common attributes
