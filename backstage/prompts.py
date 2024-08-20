@@ -1,3 +1,9 @@
+story_writer = """Write a short story in {language} that is based on the following prompt:
+
+{prompt}
+"""
+
+
 comp_mcq = """Write a comprehension or definition exercise in {language} that is based on the following text:
 ----
 {StoryBlock}
