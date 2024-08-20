@@ -34,7 +34,6 @@ class Exercise(BaseModel):
     def validate(cls, values: Dict[str, Any]) -> Dict[str, Any]:
         values = cls.check_action(values)
         values = cls.check_hints(values)
-        values = cls.check_affected_text(values)
         return values
 
     @classmethod
@@ -80,21 +79,6 @@ class Exercise(BaseModel):
                 raise ValueError(
                     f"Hints are required for exercise type '{exercise_type}'"
                 )
-
-        return values
-
-    @classmethod
-    def check_affected_text(cls, values: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Validate that affected_text is provided when action is not None.
-        Raises ValueError if affected_text is required but not provided.
-        """
-        action = values.get("action")
-        affected_text = values.get("affected_text")
-
-        # Check for affected_text requirement
-        if action is not None and not affected_text:
-            raise ValueError("affected_text is required when action is not None")
 
         return values
 
