@@ -2,6 +2,11 @@ from pydantic import BaseModel, Field, model_validator
 from typing import Any, Dict, List, Optional, Literal, Union
 
 
+class AnswerOption(BaseModel):
+    text: str
+    is_correct: bool
+
+
 class Exercise(BaseModel):
     exercise_id: int
     type: Literal[
@@ -17,7 +22,7 @@ class Exercise(BaseModel):
     cefr: List[Literal["A1", "A2", "B1", "B2", "C1"]]
     skip_condition: Optional[Literal["if-not-voice", "if-not-audio"]] = None
     query: Optional[str] = None
-    answer_options: Optional[List[Dict[str, Any]]] = None
+    answer_options: Optional[Dict[str, AnswerOption]] = None
     hints: Optional[List[str]] = None
     audio: Optional[Any] = None
     action: Optional[

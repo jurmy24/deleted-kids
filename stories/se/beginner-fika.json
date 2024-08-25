@@ -34,19 +34,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vad heter caféet där Anna väntar?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Kaffestugan",
                   "is_correct": true
                 },
-                { "id": 2, "text": "Stockholm", "is_correct": false },
-                {
-                  "id": 3,
+                "2": {
+                  "text": "Stockholm",
+                  "is_correct": false
+                },
+                "3": {
                   "text": "Café",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e1_cNarrator.mp3",
               "action": null,
@@ -58,14 +59,16 @@
               "cefr": ["A1"],
               "skip_condition": null,
               "query": "Är Karl i tid?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Ja",
                   "is_correct": false
                 },
-                { "id": 2, "text": "Nej", "is_correct": true }
-              ],
+                "2": {
+                  "text": "Nej",
+                  "is_correct": true
+                }
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e2_cNarrator.mp3",
               "action": null,
@@ -77,15 +80,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vad betyder fika?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "att äta lite mat och dryck med en annan",
                   "is_correct": true
                 },
-                { "id": 2, "text": "att gå en promenad", "is_correct": false },
-                { "id": 3, "text": "att göra kaffe", "is_correct": false }
-              ],
+                "2": {
+                  "text": "att gå en promenad",
+                  "is_correct": false
+                },
+                "3": {
+                  "text": "att göra kaffe",
+                  "is_correct": false
+                }
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e3_cNarrator.mp3",
               "action": null,
@@ -97,15 +105,20 @@
               "cefr": ["A2"],
               "skip_condition": null,
               "query": "Hur många minuter sen är Karl?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "5 minuter",
                   "is_correct": true
                 },
-                { "id": 2, "text": "10 minuter", "is_correct": false },
-                { "id": 3, "text": "15 minuter", "is_correct": false }
-              ],
+                "2": {
+                  "text": "10 minuter",
+                  "is_correct": false
+                },
+                "3": {
+                  "text": "15 minuter",
+                  "is_correct": false
+                }
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e4_cNarrator.mp3",
               "action": null,
@@ -117,14 +130,16 @@
               "cefr": ["A2"],
               "skip_condition": null,
               "query": "Väntar Anna utanför caféet?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Ja",
                   "is_correct": false
                 },
-                { "id": 2, "text": "Nej", "is_correct": true }
-              ],
+                "2": {
+                  "text": "Nej",
+                  "is_correct": true
+                }
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e5_cNarrator.mp3",
               "action": null,
@@ -136,15 +151,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vilken tid är det när Anna väntar på Karl?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "4:30",
                   "is_correct": false
                 },
-                { "id": 2, "text": "4:35", "is_correct": true },
-                { "id": 3, "text": "4:40", "is_correct": false }
-              ],
+                "2": {
+                  "text": "4:35",
+                  "is_correct": true
+                },
+                "3": {
+                  "text": "4:40",
+                  "is_correct": false
+                }
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_1/b2_e6_cNarrator.mp3",
               "action": null,
@@ -359,23 +379,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": null,
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Jag tar en chokladboll och en kopp kaffe.",
                   "is_correct": true
                 },
-                {
-                  "id": 2,
+                "2": {
                   "text": "Jag tar en chokladkaka och en kopp kaffe.",
                   "is_correct": false
                 },
-                {
-                  "id": 3,
+                "3": {
                   "text": "Jag tar en chokladboll och en kopp te.",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": null,
               "action": "hide-text",
@@ -500,15 +517,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vad handlar Anna och Karls samtal om?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Sport",
                   "is_correct": true
                 },
-                { "id": 2, "text": "Fika", "is_correct": false },
-                { "id": 3, "text": "Diskussion", "is_correct": false }
-              ],
+                "2": {
+                  "text": "Fika",
+                  "is_correct": false
+                },
+                "3": {
+                  "text": "Diskussion",
+                  "is_correct": false
+                }
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_2/b12_e1_cNarrator.mp3",
               "action": null,
@@ -520,15 +542,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vilken sport spelar Anna?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Basket",
                   "is_correct": false
                 },
-                { "id": 2, "text": "Fotboll", "is_correct": false },
-                { "id": 3, "text": "Handboll", "is_correct": true }
-              ],
+                "2": {
+                  "text": "Fotboll",
+                  "is_correct": false
+                },
+                "3": {
+                  "text": "Handboll",
+                  "is_correct": true
+                }
+              },
               "correct_answer": "Handboll",
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_2/b12_e2_cNarrator.mp3",
@@ -556,15 +583,20 @@
               "cefr": ["A1"],
               "skip_condition": null,
               "query": "Vad väntar Anna och Karl på?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Deras buss",
                   "is_correct": false
                 },
-                { "id": 2, "text": "Deras fika", "is_correct": true },
-                { "id": 3, "text": "Deras vänner", "is_correct": false }
-              ],
+                "2": {
+                  "text": "Deras fika",
+                  "is_correct": true
+                },
+                "3": {
+                  "text": "Deras vänner",
+                  "is_correct": false
+                }
+              },
               "correct_answer": "Deras fika",
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_2/b12_e4_cNarrator.mp3",
@@ -613,23 +645,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vad betyder 'gymnasiet'?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "en skola för yngre barn",
                   "is_correct": false
                 },
-                {
-                  "id": 2,
+                "2": {
                   "text": "en skola för ungdomar efter grundskolan",
                   "is_correct": true
                 },
-                {
-                  "id": 3,
+                "3": {
                   "text": "en plats för sportevenemang",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_2/b14_e1_cNarrator.mp3",
               "action": null,
@@ -641,23 +670,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vad tror Anna om längd och basket?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Hon tror basket påverkar längden",
                   "is_correct": false
                 },
-                {
-                  "id": 2,
+                "2": {
                   "text": "Hon tror inte basket påverkar längden",
                   "is_correct": true
                 },
-                {
-                  "id": 3,
+                "3": {
                   "text": "Hon vet inte",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_2/b14_e2_cNarrator.mp3",
               "action": null,
@@ -825,23 +851,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vem erbjuder sig att betala?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Anna",
                   "is_correct": true
                 },
-                {
-                  "id": 2,
+                "2": {
                   "text": "Karl",
                   "is_correct": false
                 },
-                {
-                  "id": 3,
+                "3": {
                   "text": "Servitrisen",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_2/b20_e1_cNarrator.mp3",
               "action": null,
@@ -918,23 +941,20 @@
               "cefr": ["A1"],
               "skip_condition": null,
               "query": "Vad bestämmer sig Anna och Karl för att göra efter fikat?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Ta en promenad",
                   "is_correct": true
                 },
-                {
-                  "id": 2,
+                "2": {
                   "text": "Åka hem",
                   "is_correct": false
                 },
-                {
-                  "id": 3,
+                "3": {
                   "text": "Gå till ett museum",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_3/b22_e1_cNarrator.mp3",
               "action": null,
@@ -946,23 +966,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vad betyder \"promenad\"?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Att gå en tur",
                   "is_correct": true
                 },
-                {
-                  "id": 2,
+                "2": {
                   "text": "Att klättra ett berg",
                   "is_correct": false
                 },
-                {
-                  "id": 3,
+                "3": {
                   "text": "Att dansa",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_3/b22_e2_cNarrator.mp3",
               "action": null,
@@ -1010,23 +1027,20 @@
               "cefr": ["A1"],
               "skip_condition": null,
               "query": "Vem ser Karl när de passerar kaféet?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Hans ex, Maria",
                   "is_correct": true
                 },
-                {
-                  "id": 2,
+                "2": {
                   "text": "En gammal vän",
                   "is_correct": false
                 },
-                {
-                  "id": 3,
+                "3": {
                   "text": "En kollega",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_3/b24_e2_cNarrator.mp3",
               "action": null,
@@ -1113,19 +1127,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vad händer med Anna när hon får ett meddelande?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Hon skrattar och nämner att det är från hennes ex",
                   "is_correct": true
                 },
-                { "id": 2, "text": "Hon blir arg", "is_correct": false },
-                {
-                  "id": 3,
+                "2": {
+                  "text": "Hon blir arg",
+                  "is_correct": false
+                },
+                "3": {
                   "text": "Hon ignorerar meddelandet",
                   "is_correct": false
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_3/b26_e2_cNarrator.mp3",
               "action": null,
@@ -1248,19 +1263,20 @@
               "cefr": ["A1", "A2"],
               "skip_condition": null,
               "query": "Vad lovar Karl?",
-              "answer_options": [
-                {
-                  "id": 1,
+              "answer_options": {
+                "1": {
                   "text": "Att ha en bra dag",
                   "is_correct": false
                 },
-                { "id": 2, "text": "Att han är glad", "is_correct": false },
-                {
-                  "id": 3,
-                  "text": "Att han inte kommer glömma plånboken",
+                "2": {
+                  "text": "Att han är glad",
+                  "is_correct": false
+                },
+                "3": {
+                  "text": "Att han inte kommer att glömma plånboken",
                   "is_correct": true
                 }
-              ],
+              },
               "hints": null,
               "audio": "audio/se/1_fika_i_stockholm/chapter_3/b32_e2_cNarrator.mp3",
               "action": null,

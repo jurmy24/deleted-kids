@@ -34,9 +34,9 @@ class ExerciseManager:
 
         print(f"\t{Fore.GREEN}Question:{Style.RESET_ALL} {exercise.query}")
         if exercise.answer_options:
-            for option in exercise.answer_options:
-                idx = option["id"]
-                text = option["text"]
+            for k in exercise.answer_options.keys():
+                idx = k
+                text = exercise.answer_options[k].text
                 print(f"\t{idx}. {text}")
 
         self._evaluate_user_answer(exercise)
@@ -106,14 +106,20 @@ class ExerciseManager:
         while is_correct == False:
             try:
                 # TODO: Redesign the dictionary to be of the format {id: {text: str, is_correct: bool}} so you can just write answer_options[1].is_correct
-                for option in exercise.answer_options:
-                    if option["id"] == int(user_answer):
-                        is_correct = bool(option["is_correct"])
-                        if is_correct:
-                            print(f"\t{Fore.GREEN}Correct!{Style.RESET_ALL}")
-                        else:
-                            print(f"\t{Fore.RED}Incorrect.{Style.RESET_ALL}")
-                            user_answer = input("\tAnswer with the ID: ")
+                is_correct = exercise.answer_options[user_answer].is_correct
+                if is_correct:
+                    print(f"\t{Fore.GREEN}Correct!{Style.RESET_ALL}")
+                else:
+                    print(f"\t{Fore.RED}Incorrect.{Style.RESET_ALL}")
+                    user_answer = input("\tAnswer with the ID: ")
+                # for option in exercise.answer_options:
+                #     if option["id"] == int(user_answer):
+                #         is_correct = bool(option["is_correct"])
+                #         if is_correct:
+                #             print(f"\t{Fore.GREEN}Correct!{Style.RESET_ALL}")
+                #         else:
+                #             print(f"\t{Fore.RED}Incorrect.{Style.RESET_ALL}")
+                #             user_answer = input("\tAnswer with the ID: ")
             except:
                 print(f"\tInvalid answer. Please enter a valid option ID.")
                 user_answer = input("\tAnswer with the ID: ")
