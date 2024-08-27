@@ -8,6 +8,10 @@ from termcolor import colored
 import logging
 import re
 from multiprocessing import Process, Queue
+from transformers import logging as transformers_logging
+
+# This prevents transformers from doing unnecessary prints by setting its logging level to ERROR
+transformers_logging.set_verbosity_error()
 
 
 class LivePronunciationCheck:
@@ -83,6 +87,7 @@ class LivePronunciationCheck:
 
             # Generate transcription
             with torch.no_grad():
+
                 predicted_ids = self.model.generate(
                     input_features, forced_decoder_ids=self.forced_decoder_ids
                 )
@@ -128,7 +133,7 @@ class LivePronunciationCheck:
         if all(word in self.recognized_words for word in target_words):
             self.is_listening = False
             print("\n")
-            self.logger.info("\nYou pronounced the entire sentence correctly!")
+            self.logger.info("You pronounced the entire sentence correctly!")
 
     def start_long_transcription(self):
         """A secondary process to handle longer 5-second chunks of audio."""
