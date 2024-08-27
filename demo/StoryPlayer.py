@@ -141,7 +141,7 @@ class StoryPlayer:
     def _display_exercise(self, exercise: Exercise):
         print(f"\n\t{Fore.GREEN}EXERCISE{Style.RESET_ALL}")
         print(f"\t{Fore.GREEN}Type:{Style.RESET_ALL} {exercise.type} \n")
-        self.exercise_manager.handle_exercise(exercise)
+        self.exercise_manager.handle_exercise(exercise, self.story)
 
 
 if __name__ == "__main__":

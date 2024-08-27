@@ -14,12 +14,11 @@ from transformers import logging as transformers_logging
 transformers_logging.set_verbosity_error()
 
 
-class LivePronunciationCheck:
+class SpeechAnalysis:
     sampling_rate: int = 16000
 
     def __init__(
         self,
-        target_sentence: str,
         language: Literal["english", "swedish", "french"],
         model_name: Literal[
             "openai/whisper-tiny", "openai/whisper-base", "openai/whisper-small"
@@ -34,8 +33,7 @@ class LivePronunciationCheck:
             language=language, task="transcribe"
         )
 
-        # Preprocess target sentence
-        self.target_sentence = self._process_text(target_sentence)
+        self.target_sentence = ""
 
         # Setup logging
         self.logger = logging.getLogger(__name__)
@@ -69,19 +67,19 @@ class LivePronunciationCheck:
         self.long_buffer.extend(audio_data)
 
         # Process in chunks of ~2 seconds for better context
-        if len(self.buffer) > 2.5 * LivePronunciationCheck.sampling_rate:
+        if len(self.buffer) > 2.5 * SpeechAnalysis.sampling_rate:
             # Extract the first 3 seconds of audio data
             audio_chunk = np.array(
-                self.buffer[: int(2.5 * LivePronunciationCheck.sampling_rate)]
+                self.buffer[: int(2.5 * SpeechAnalysis.sampling_rate)]
             )
             self.buffer = self.buffer[
-                int(1 * LivePronunciationCheck.sampling_rate) :
+                int(1 * SpeechAnalysis.sampling_rate) :
             ]  # Keep the last 1 second of context
 
             # Convert audio data to tensor and preprocess for Whisper
             input_features = self.processor(
                 audio_chunk,
-                sampling_rate=LivePronunciationCheck.sampling_rate,
+                sampling_rate=SpeechAnalysis.sampling_rate,
                 return_tensors="pt",
             ).input_features
 
@@ -99,7 +97,7 @@ class LivePronunciationCheck:
             self.highlight_text(self._process_text(transcription[0]))
 
         # Send long buffer to the secondary process every 5 seconds
-        if len(self.long_buffer) > 5 * LivePronunciationCheck.sampling_rate:
+        if len(self.long_buffer) > 5 * SpeechAnalysis.sampling_rate:
             self.queue.put(np.array(self.long_buffer))
             self.long_buffer = []
 
@@ -142,7 +140,7 @@ class LivePronunciationCheck:
                 long_chunk = self.queue.get()
                 input_features = self.processor(
                     long_chunk,
-                    sampling_rate=LivePronunciationCheck.sampling_rate,
+                    sampling_rate=SpeechAnalysis.sampling_rate,
                     return_tensors="pt",
                 ).input_features
 
@@ -160,16 +158,18 @@ class LivePronunciationCheck:
                 # Highlight and update recognized words based on the longer transcription
                 self.highlight_text(processed_transcription)
 
-    def start_listening(self):
-        self.logger.info(f"Target sentence: {self.target_sentence}")
+    def start_listening(self, target_sentence: str):
+        self.logger.info(f"Target sentence: {target_sentence}")
         self.logger.info("Please start speaking... Press Ctrl+C to stop.")
+
+        self.target_sentence = self._process_text(target_sentence)
 
         # Start the secondary process
         long_process = Process(target=self.start_long_transcription)
         long_process.start()
 
         with sd.InputStream(
-            samplerate=LivePronunciationCheck.sampling_rate,
+            samplerate=SpeechAnalysis.sampling_rate,
             channels=1,
             callback=self._callback,
         ):
@@ -177,10 +177,13 @@ class LivePronunciationCheck:
                 sd.sleep(1000)
 
         # Ensure the secondary process stops when listening stops
-        long_process.join()
+        # TODO: Figure out how to do this properly
+        # long_process.join()
+        long_process.terminate()
+        # long_process.join()
 
 
 if __name__ == "__main__":
     target_sentence = "Det är roligt att träffas"
-    live_checker = LivePronunciationCheck(target_sentence, language="swedish")
-    live_checker.start_listening()
+    live_checker = SpeechAnalysis(language="swedish")
+    live_checker.start_listening(target_sentence)

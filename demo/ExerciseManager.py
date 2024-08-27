@@ -1,9 +1,13 @@
 from colorama import Fore, Style
-from backstage.schema import Exercise
+from backstage.schema import Exercise, Story, StoryBlock
+from demo.SpeechAnalysis import SpeechAnalysis
 
 
 class ExerciseManager:
-    def handle_exercise(self, exercise: Exercise):
+    def __init__(self, language: str = "swedish"):
+        self.pronunciation_analyzer = SpeechAnalysis(language=language)
+
+    def handle_exercise(self, exercise: Exercise, story: Story):
         """
         Determines how to handle each type of exercise when displayed in the terminal.
         Calls the appropriate method based on the exercise type.
@@ -15,17 +19,17 @@ class ExerciseManager:
         elif exercise_type == "comp-tf":
             self.handle_comp_tf(exercise)
         elif exercise_type == "speak-replace":
-            self.handle_speak_replace(exercise)
+            self.handle_speak_replace(exercise, story)
         elif exercise_type == "speak-question":
-            self.handle_speak_question(exercise)
+            self.handle_speak_question(exercise, story)
         elif exercise_type == "interact":
-            self.handle_interact(exercise)
+            self.handle_interact(exercise, story)
         elif exercise_type == "comp-listen":
             self.handle_comp_listen(exercise)
         elif exercise_type == "pronounce-rep":
-            self.handle_pronounce_rep(exercise)
+            self.handle_pronounce_rep(exercise, story)
         elif exercise_type == "pronounce-deaf":
-            self.handle_pronounce_deaf(exercise)
+            self.handle_pronounce_deaf(exercise, story)
         else:
             print(f"{Fore.RED}Unknown exercise type: {exercise_type}{Style.RESET_ALL}")
 
@@ -46,7 +50,7 @@ class ExerciseManager:
 
         self.handle_comp_mcq(exercise)
 
-    def handle_speak_replace(self, exercise: Exercise):
+    def handle_speak_replace(self, exercise: Exercise, story: Story):
         # Handles a speak-and-replace exercise.
 
         print("\tSpeak-and-Replace Exercise:")
@@ -55,7 +59,7 @@ class ExerciseManager:
         print("\tTry to speak the correct phrase.")
         self._evaluate_user_speech(exercise)
 
-    def handle_speak_question(self, exercise: Exercise):
+    def handle_speak_question(self, exercise: Exercise, story: Story):
         # Handles a speak-and-answer question exercise.
 
         print("\tSpeak-and-Answer Question Exercise:")
@@ -64,7 +68,7 @@ class ExerciseManager:
         print("\tRespond by speaking your answer.")
         self._evaluate_user_speech(exercise)
 
-    def handle_interact(self, exercise: Exercise):
+    def handle_interact(self, exercise: Exercise, story: Story):
         # Handles an interactive exercise.
         print("\tInteractive Exercise:")
         if exercise.query:
@@ -84,19 +88,20 @@ class ExerciseManager:
 
             self._evaluate_user_answer(exercise)
 
-    def handle_pronounce_rep(self, exercise: Exercise):
+    def handle_pronounce_rep(self, exercise: Exercise, story: Story):
+        target_sentence = self._get_affected_line(exercise, story)
         # Handles a pronunciation repetition exercise.
-        print("\tPronunciation Repetition Exercise:")
-        if exercise.query:
-            print(f"\tRepeat after: {exercise.query}")
-        self._play_affected_line(exercise)
+        if target_sentence:
+            # Start listening for the pronunciation
+            self.pronunciation_analyzer.start_listening(target_sentence)
 
-    def handle_pronounce_deaf(self, exercise: Exercise):
+    # TODO: these are identical right now
+    def handle_pronounce_deaf(self, exercise: Exercise, story: Story):
+        target_sentence = self._get_affected_line(exercise, story)
         # Handles a pronunciation deaf exercise.
-        print("\tPronunciation Deaf Exercise:")
-        if exercise.query:
-            print(f"\tRepeat after: {exercise.query}")
-        self._play_affected_line(exercise)
+        if target_sentence:
+            # Start listening for the pronunciation
+            self.pronunciation_analyzer.start_listening(target_sentence)
 
     def _evaluate_user_answer(self, exercise: Exercise):
         # A private method to evaluate the user's answer for text-based exercises.
@@ -105,21 +110,12 @@ class ExerciseManager:
         is_correct = False
         while is_correct == False:
             try:
-                # TODO: Redesign the dictionary to be of the format {id: {text: str, is_correct: bool}} so you can just write answer_options[1].is_correct
                 is_correct = exercise.answer_options[user_answer].is_correct
                 if is_correct:
                     print(f"\t{Fore.GREEN}Correct!{Style.RESET_ALL}")
                 else:
                     print(f"\t{Fore.RED}Incorrect.{Style.RESET_ALL}")
                     user_answer = input("\tAnswer with the ID: ")
-                # for option in exercise.answer_options:
-                #     if option["id"] == int(user_answer):
-                #         is_correct = bool(option["is_correct"])
-                #         if is_correct:
-                #             print(f"\t{Fore.GREEN}Correct!{Style.RESET_ALL}")
-                #         else:
-                #             print(f"\t{Fore.RED}Incorrect.{Style.RESET_ALL}")
-                #             user_answer = input("\tAnswer with the ID: ")
             except:
                 print(f"\tInvalid answer. Please enter a valid option ID.")
                 user_answer = input("\tAnswer with the ID: ")
@@ -140,14 +136,50 @@ class ExerciseManager:
         )  # Placeholder for actual interaction logic
         print("\tInteraction complete.")
 
-    def _play_affected_line(self, exercise: Exercise):
-        # Plays or emphasizes the affected block based on the exercise configuration.
+    def _get_affected_line(self, exercise: Exercise, story: Story) -> str | None:
+        # Check if there's an affected line specified
         if exercise.affected_line:
             print(f"\tRefer to block: {exercise.affected_line}")
-            # Simulate fetching and playing the affected block
-            print(f"\t[Simulated playback for block {exercise.affected_line}]")
+
+            # Parse the affected_line string
+            try:
+                _, chapter_number, block_id, line_id = map(
+                    int, exercise.affected_line.split("-")
+                )
+
+                # Find the chapter
+                chapter = next(
+                    (ch for ch in story.chapters if ch.chapter == chapter_number), None
+                )
+                if not chapter:
+                    print("\tChapter not found.")
+                    return None
+
+                # Find the block within the chapter
+                block = next(
+                    (bl for bl in chapter.blocks if bl.block_id == block_id), None
+                )
+                if not block:
+                    print("\tBlock not found.")
+                    return None
+
+                # Ensure the block is a StoryBlock
+                if not isinstance(block, StoryBlock):
+                    print("\tBlock is not a StoryBlock.")
+                    return None
+
+                # Find the line within the block
+                line = next((ln for ln in block.lines if ln.line_id == line_id), None)
+                if not line:
+                    print("\tLine not found.")
+                    return
+
+                return line.text
+            except ValueError:
+                print("\tInvalid format for affected_line.")
         else:
             print("\tNo affected block specified.")
+            return None
 
 
 # Example usage
