@@ -1,44 +1,79 @@
+from typing import Literal
 import torch
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
 import sounddevice as sd
+from sounddevice import CallbackFlags
 import numpy as np
 from termcolor import colored
+import logging
+import re
 
 
 class LivePronunciationCheck:
+    sampling_rate: int = 16000
+
     def __init__(
-        self, target_sentence, model_name="openai/whisper-tiny", language="english"
+        self,
+        target_sentence: str,
+        language: Literal["english", "swedish", "french"],
+        model_name: Literal[
+            "openai/whisper-tiny", "openai/whisper-base", "openai/whisper-small"
+        ] = "openai/whisper-tiny",
     ):
-        self.target_sentence = target_sentence.lower()
-        self.processor = WhisperProcessor.from_pretrained(model_name)
-        self.model = WhisperForConditionalGeneration.from_pretrained(model_name)
+        # Setup Whisper model and processor
+        self.processor: WhisperProcessor = WhisperProcessor.from_pretrained(model_name)
+        self.model: WhisperForConditionalGeneration = (
+            WhisperForConditionalGeneration.from_pretrained(model_name)
+        )
         self.forced_decoder_ids = self.processor.get_decoder_prompt_ids(
             language=language, task="transcribe"
         )
-        self.sampling_rate = 16000
+
+        # Preprocess target sentence
+        self.target_sentence = self._process_text(target_sentence)
+
+        # Setup logging
+        self.logger = logging.getLogger(__name__)
+
+        # Add some other variables
         self.is_listening = True
         self.buffer = []
         self.recognized_words = set()
 
-    def _callback(self, indata, frames, time, status):
+    def _process_text(self, sentence: str) -> str:
+        # Convert to lowercase
+        sentence = sentence.lower().strip()
+
+        # Remove all non-alphanumeric characters (except spaces)
+        sentence = re.sub(r"[^\w\s]", "", sentence)
+
+        return sentence
+
+    def _callback(
+        self, indata: np.ndarray, frames: int, time, status: CallbackFlags
+    ) -> None:  # time is of type CData but its not used
+
         if status:
-            print(f"Status: {status}")
+            self.logger.info(f"Status: {status}")
 
         # Collect audio data
-        audio_data = indata[:, 0]  # Use first channel if stereo
+        audio_data = indata[:, 0]  # View all the frames from the first channel
         self.buffer.extend(audio_data)
 
         # Process in chunks of ~2 seconds for better context
-        if len(self.buffer) > 2 * self.sampling_rate:
-            audio_chunk = np.array(self.buffer[: 2 * self.sampling_rate])
+        if len(self.buffer) > 2.5 * LivePronunciationCheck.sampling_rate:
+            # Extract the first 3 seconds of audio data
+            audio_chunk = np.array(
+                self.buffer[: int(2.5 * LivePronunciationCheck.sampling_rate)]
+            )
             self.buffer = self.buffer[
-                int(1.5 * self.sampling_rate) :
-            ]  # Keep the last 0.5 second of context
+                int(1 * LivePronunciationCheck.sampling_rate) :
+            ]  # Keep the last 1 second of context
 
             # Convert audio data to tensor and preprocess for Whisper
             input_features = self.processor(
                 audio_chunk,
-                sampling_rate=self.sampling_rate,
+                sampling_rate=LivePronunciationCheck.sampling_rate,
                 return_tensors="pt",
             ).input_features
 
@@ -52,9 +87,9 @@ class LivePronunciationCheck:
                 )
 
             # Highlight and display the recognized text
-            self.highlight_text(transcription[0].lower())
+            self.highlight_text(self._process_text(transcription[0]))
 
-    def highlight_text(self, recognized_text):
+    def highlight_text(self, recognized_text: str):
         recognized_words = recognized_text.split()
         target_words = self.target_sentence.split()
 
@@ -71,25 +106,34 @@ class LivePronunciationCheck:
                 highlighted_sentence += colored(word, "green") + " "
             else:
                 highlighted_sentence += word + " "
-
-        print("\r" + highlighted_sentence.strip(), end="")
+        # Clear the current line by overwriting it with spaces
+        print("\r" + " " * 100, end="")
+        print(
+            "\r"
+            + highlighted_sentence.strip()
+            + f"\t|\t Transcription: {recognized_text}",
+            end="",
+        )
 
         # Check if all words have been recognized
         if all(word in self.recognized_words for word in target_words):
             self.is_listening = False
-            print("\nYou pronounced the entire sentence correctly!")
+            print("\n")
+            self.logger.info("\nYou pronounced the entire sentence correctly!")
 
     def start_listening(self):
-        print(f"Target sentence: {self.target_sentence}")
-        print("Please start speaking... Press Ctrl+C to stop.")
+        self.logger.info(f"Target sentence: {self.target_sentence}")
+        self.logger.info("Please start speaking... Press Ctrl+C to stop.")
         with sd.InputStream(
-            samplerate=self.sampling_rate, channels=1, callback=self._callback
+            samplerate=LivePronunciationCheck.sampling_rate,
+            channels=1,
+            callback=self._callback,
         ):
             while self.is_listening:
                 sd.sleep(1000)
 
 
 if __name__ == "__main__":
-    target_sentence = "This is a test sentence to "
-    live_checker = LivePronunciationCheck(target_sentence, language="english")
+    target_sentence = "roligt att träffas"
+    live_checker = LivePronunciationCheck(target_sentence, language="swedish")
     live_checker.start_listening()
