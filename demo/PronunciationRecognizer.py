@@ -154,6 +154,18 @@ class PronunciationRecognizer:
 
         self.evaluate_performance()
 
+        self.reset()
+
+    def reset(self):
+        """Reset the recognizer for a new session."""
+        self.target_sentence = ""
+        self.is_listening = Event()
+        self.is_listening.set()  # Initialize to True
+        self.audio_buffer = []
+        self.long_audio_buffer = []
+        self.recognized_words = set()
+        self.transcription_queue = Queue()
+
     def evaluate_performance(self):
         """Evaluate whether the user pronounced enough of the sentence correctly."""
         recognized_percentage = (
