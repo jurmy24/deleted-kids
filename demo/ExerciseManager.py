@@ -1,6 +1,8 @@
 from colorama import Fore, Style
 from backstage.schema import Exercise, Story, StoryBlock
-from demo.SpeechAnalysis import SpeechAnalysis
+from demo.SpeechRecognizer import SpeechAnalysis
+from multiprocessing import Process, Queue
+import time
 
 
 class ExerciseManager:
@@ -81,26 +83,25 @@ class ExerciseManager:
         print("\tListening Comprehension Exercise:")
 
         if exercise.answer_options:
-            for option in exercise.answer_options:
-                idx = option["id"]
-                text = option["text"]
+            for k in exercise.answer_options.keys():
+                idx = k
+                text = exercise.answer_options[k].text
                 print(f"\t{idx}. {text}")
 
             self._evaluate_user_answer(exercise)
 
     def handle_pronounce_rep(self, exercise: Exercise, story: Story):
+        # Retrieve the target sentence
         target_sentence = self._get_affected_line(exercise, story)
-        # Handles a pronunciation repetition exercise.
         if target_sentence:
-            # Start listening for the pronunciation
+            # Start the pronunciation analysis using SpeechAnalysis class
             self.pronunciation_analyzer.start_listening(target_sentence)
 
-    # TODO: these are identical right now
     def handle_pronounce_deaf(self, exercise: Exercise, story: Story):
+        # Retrieve the target sentence
         target_sentence = self._get_affected_line(exercise, story)
-        # Handles a pronunciation deaf exercise.
         if target_sentence:
-            # Start listening for the pronunciation
+            # Start the pronunciation analysis using SpeechAnalysis class
             self.pronunciation_analyzer.start_listening(target_sentence)
 
     def _evaluate_user_answer(self, exercise: Exercise):

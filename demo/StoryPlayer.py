@@ -1,3 +1,9 @@
+import warnings
+
+# NOTE: this is not recommended practice in production code, but this is just a demo
+# Suppress all user warnings
+warnings.filterwarnings("ignore", category=UserWarning)
+
 import random
 from typing import Literal, Tuple
 from colorama import Fore, Style
