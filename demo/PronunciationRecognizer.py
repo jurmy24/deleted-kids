@@ -14,7 +14,7 @@ from transformers import logging as transformers_logging
 transformers_logging.set_verbosity_error()
 
 
-class SpeechRecognizer:
+class PronunciationRecognizer:
     sampling_rate: int = 16000
 
     def __init__(
@@ -60,23 +60,25 @@ class SpeechRecognizer:
         self.audio_buffer.extend(audio_data)
         self.long_audio_buffer.extend(audio_data)
 
-        if len(self.audio_buffer) > 2.5 * SpeechRecognizer.sampling_rate:
+        if len(self.audio_buffer) > 2.5 * PronunciationRecognizer.sampling_rate:
             self.process_audio_buffer()
 
-        if len(self.long_audio_buffer) > 5 * SpeechRecognizer.sampling_rate:
+        if len(self.long_audio_buffer) > 5 * PronunciationRecognizer.sampling_rate:
             self.transcription_queue.put(np.array(self.long_audio_buffer))
             self.long_audio_buffer.clear()
 
     def process_audio_buffer(self):
         """Process the short audio buffer and generate transcription."""
         audio_chunk = np.array(
-            self.audio_buffer[: int(2.5 * SpeechRecognizer.sampling_rate)]
+            self.audio_buffer[: int(2.5 * PronunciationRecognizer.sampling_rate)]
         )
-        self.audio_buffer = self.audio_buffer[int(1 * SpeechRecognizer.sampling_rate) :]
+        self.audio_buffer = self.audio_buffer[
+            int(1 * PronunciationRecognizer.sampling_rate) :
+        ]
 
         input_features = self.processor(
             audio_chunk,
-            sampling_rate=SpeechRecognizer.sampling_rate,
+            sampling_rate=PronunciationRecognizer.sampling_rate,
             return_tensors="pt",
         ).input_features
 
@@ -118,7 +120,7 @@ class SpeechRecognizer:
 
             input_features = self.processor(
                 long_chunk,
-                sampling_rate=SpeechRecognizer.sampling_rate,
+                sampling_rate=PronunciationRecognizer.sampling_rate,
                 return_tensors="pt",
             ).input_features
 
@@ -140,7 +142,7 @@ class SpeechRecognizer:
         long_process.start()
 
         with sd.InputStream(
-            samplerate=SpeechRecognizer.sampling_rate,
+            samplerate=PronunciationRecognizer.sampling_rate,
             channels=1,
             callback=self.audio_callback,
         ):
@@ -166,5 +168,5 @@ class SpeechRecognizer:
 
 if __name__ == "__main__":
     target_sentence = "Det är roligt att träffas"
-    speech_recognizer = SpeechRecognizer(language="swedish")
+    speech_recognizer = PronunciationRecognizer(language="swedish")
     speech_recognizer.start_listening(target_sentence)
