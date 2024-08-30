@@ -2,6 +2,11 @@
   "title": "Fika i Stockholm",
   "description": "En berättelse om Annas och Karls blinda fikadejt på ett café i Stockholm.",
   "audio": "audio/se/1_fika_i_stockholm/description_cNarrator.mp3",
+  "voice_map": {
+    "Narrator": "IKne3meq5aSn9XLyUdCD",
+    "Anna": "pFZP5JQG7iQjIQuC4Bku",
+    "Karl": "bIHbv24MWmeRgasZH58o"
+  },
   "language": "se",
   "story_id": 1,
   "level": "beginner",
