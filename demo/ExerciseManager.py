@@ -1,5 +1,6 @@
 from colorama import Fore, Style
-from backstage.schema import Exercise, Story, StoryBlock
+from backstage.story_schema import Exercise, ExerciseBlock, Story, StoryBlock
+from demo.InteractionBot import InteractionBot
 from demo.SpeechRecognizer import SpeechRecognizer
 from demo.PronunciationRecognizer import PronunciationRecognizer
 import random
@@ -9,6 +10,7 @@ class ExerciseManager:
     def __init__(self, language: str = "swedish"):
         self.pronunciation_recognizer = PronunciationRecognizer(language=language)
         self.speech_recognizer = SpeechRecognizer(language=language)
+        self.interaction_bot = InteractionBot(model="gpt-3.5-turbo")
 
     def handle_exercise(self, exercise: Exercise, story: Story):
         """
@@ -48,7 +50,6 @@ class ExerciseManager:
         print("\tSpeak-and-Replace Exercise:")
         if self.exercise.query:
             print(f"\tPrompt: {self.exercise.query}")
-        print("\tTry to speak the correct phrase.")
         self._evaluate_user_speech()
 
     def _handle_speak_question(self) -> None:
@@ -56,15 +57,44 @@ class ExerciseManager:
         print("\tSpeak-and-Answer Question Exercise:")
         if self.exercise.query:
             print(f"\tQuestion: {self.exercise.query}")
-        print("\tRespond by speaking your answer.")
         self._evaluate_user_speech()
 
+    # TODO: implement this method
     def _handle_interaction(self) -> None:
         """Handles an interactive exercise."""
         print("\tInteractive Exercise:")
         if self.exercise.query:
             print(f"\tInteraction prompt: {self.exercise.query}")
-        print("\tEngage with the prompt interactively.")
+
+        # TODO: Create a consistent setup to get the voice id for the VAPI assistant
+        self.interaction_bot.setup(
+            language=self.story.language, voice=self.story.voice_map.get("narrator")
+        )
+
+        first_message = self.exercise.query
+        # context should be everything in the story so far including the exercises that have been done
+        # TODO: Implement the get_story_so_far method in the Story class
+        # FOR NOW: just give it the whole story and exercises
+        context = self.get_story_so_far()
+
+        self.interaction_bot.start_interaction(context, first_message)
+
+    def get_story_so_far(self) -> str:
+        """Returns a string of the story and exercises read up until this point."""
+        content = []
+
+        for chapter in self.story.chapters:
+            content.append(f"Chapter {chapter.chapter}: {chapter.title}\n")
+            for block in chapter.blocks:
+                if isinstance(block, StoryBlock):
+                    for line in block.lines:
+                        content.append(f"{line.character}: {line.text}\n")
+                elif isinstance(block, ExerciseBlock):
+                    for exercise in block.exercise_options:
+                        if exercise.query:
+                            content.append(f"Exercise: {exercise.query}\n")
+
+        return "".join(content)
 
     def _handle_listening_comprehension(self) -> None:
         """Handles a listening comprehension exercise."""
@@ -112,7 +142,6 @@ class ExerciseManager:
             print(f"\tHint: {random_hint}")
 
         # Use SpeechRecognizer to record and transcribe the user's speech
-
         transcription = self.speech_recognizer.recognize_speech()
         print(f"\tTranscription: {transcription}")
 

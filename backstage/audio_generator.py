@@ -4,7 +4,7 @@ from typing import Dict, Optional
 from dotenv import load_dotenv
 from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
-from backstage.schema import ExerciseBlock, Story, StoryBlock
+from backstage.story_schema import ExerciseBlock, Story, StoryBlock
 from backstage.firebase_storage import FirebaseStorage
 import logging
 from tqdm import tqdm
