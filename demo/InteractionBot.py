@@ -10,7 +10,7 @@ class InteractionBot:
         api_key = os.getenv("VAPI_PUBLIC_KEY")
         self.vapi = Vapi(api_key=api_key)
 
-    def start_interaction(self, assistant_id: UUID4, context: str, first_message: str):
+    def start_interaction(self, assistant_id: UUID4, first_message: str, context: str):
         """Start the interactive session using Vapi."""
         assistant_overrides = {
             "firstMessage": first_message,

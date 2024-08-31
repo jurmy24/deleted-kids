@@ -24,6 +24,7 @@ class StoryPlayer:
         self.audio_player = BackgroundAudioPlayer()
         self.line_modifications = {}  # Store modifications for specific lines
         self.selected_exercises = {}  # Store preprocessing selected exercises
+        self.processed_story = []
 
     def _parse_affected_line(self, affected_line: str) -> Tuple[int, int, int]:
         # Parse the affected_line string to extract StoryID, ChapterNumber, BlockID, and LineID.
@@ -41,6 +42,8 @@ class StoryPlayer:
         print(f"\n{Fore.CYAN}Story:{Style.RESET_ALL} {self.story.title}")
         print(f"{Fore.CYAN}Description:{Style.RESET_ALL} {self.story.description} \n")
 
+        self.processed_story.append(f"Story title: {self.story.title}")
+
         if self.story.audio:
             self._play_audio(self.story.audio)
 
@@ -55,6 +58,8 @@ class StoryPlayer:
         if not chapter:
             print(f"{Fore.RED}Chapter {chapter_number} not found.{Style.RESET_ALL}")
             return
+
+        self.processed_story.append(f"Chapter {chapter_number}: {chapter.title}")
 
         # Preprocess blocks to select exercises and identify necessary modifications
         self._preprocess_blocks(chapter.blocks)
@@ -109,6 +114,7 @@ class StoryPlayer:
     def _display_story_block(self, block: StoryBlock):
         for line in block.lines:
             action = self.line_modifications.get((block.block_id, line.line_id), None)
+            self.processed_story.append(f"{line.character}: {line.text}")
 
             # Modify the display based on the action
             if action in ["hide-text", "hide-all"]:
@@ -134,10 +140,16 @@ class StoryPlayer:
 
     def _display_exercise_block(self, block: ExerciseBlock):
         # Use the preselected exercise for this block
-        selected_exercise = self.selected_exercises.get(block.block_id, None)
+        selected_exercise: Exercise | None = self.selected_exercises.get(
+            block.block_id, None
+        )
 
         if selected_exercise:
             self._display_exercise(selected_exercise)
+
+            if selected_exercise.query:
+                self.processed_story.append(f"Exercise: {selected_exercise.query}")
+
             input(f"{Fore.YELLOW}Press enter to continue...{Style.RESET_ALL}")
         else:
             print(
@@ -147,7 +159,9 @@ class StoryPlayer:
     def _display_exercise(self, exercise: Exercise):
         print(f"\n\t{Fore.GREEN}EXERCISE{Style.RESET_ALL}")
         print(f"\t{Fore.GREEN}Type:{Style.RESET_ALL} {exercise.type} \n")
-        self.exercise_manager.handle_exercise(exercise, self.story)
+        self.exercise_manager.handle_exercise(
+            exercise, self.story, self.processed_story
+        )
 
 
 if __name__ == "__main__":
