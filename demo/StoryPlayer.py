@@ -9,7 +9,7 @@ from typing import Literal, Tuple
 from colorama import Fore, Style
 
 from backstage.firebase_storage import FirebaseStorage
-from story_compiler import compile_json_to_story, read_json_file
+from backstage.story_compiler import compile_json_to_story, read_json_file
 from backstage.story_schema import Chapter, Exercise, ExerciseBlock, Story, StoryBlock
 from demo.ExerciseManager import ExerciseManager  # Import the ExerciseManager
 from demo.AudioPlayer import BackgroundAudioPlayer
