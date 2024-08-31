@@ -8,7 +8,7 @@ from backstage.story_schema import ExerciseBlock, Story, StoryBlock
 from backstage.firebase_storage import FirebaseStorage
 import logging
 from tqdm import tqdm
-import story_compiler
+import backstage.story_compiler as story_compiler
 
 
 class AudioIntegrator:
