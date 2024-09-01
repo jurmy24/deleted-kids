@@ -1,10 +1,18 @@
-story_writer = """Write a short story in {language} that is based on the following prompt:
+story_writer = """
+The story is titled "{story_title}" and is written in {language} level {CEFR}. The story is about {short_description}.
 
-{prompt}
+Write the {nth} chapter titled "{chapter_title}" and follow these instructions:
+
+# Requirements
+- Characters: {characters}
+- Length: {length}
+- Events: {special_events}
+- Tone: {tone_or_style}
+- Difficulty: {difficulty}
 """
 
 
-comp_mcq = """Write a comprehension or definition exercise in {language} that is based on the following text:
+comp_mcq = """Write a comprehension or definition exercise (called comp-mcq) in {language} that is based on the following text:
 ----
 {StoryBlock}
 ----
@@ -19,7 +27,7 @@ Follow the rules:
 Go!"""
 
 
-comp_tf = """Write a true/false comprehension or definition exercise in {language} that is based on the following text:
+comp_tf = """Write a true/false comprehension or definition exercise (called comp-tf) in {language} that is based on the following text:
 ----
 {StoryBlock}
 ----
@@ -34,7 +42,7 @@ Follow the rules:
 Go!"""
 
 
-comp_listen = """Write a listening comprehension exercise in {language} by providing possible interpretations of the the last part of the following text if it were heard audibly and not read:
+comp_listen = """Write a listening comprehension exercise (called comp-listen) in {language} by providing possible interpretations of the the last part of the following text if it were heard audibly and not read:
 ----
 {StoryBlock}
 ----
@@ -48,7 +56,7 @@ Follow the rules:
 
 Go!"""
 
-pronounce_rep = """Select a very short section of the following text for the user to read aloud:
+pronounce_rep = """Select a very short line of the following text for the user to read aloud (this exercise is called pronounce-rep):
 ----
 {StoryBlock}
 ----
@@ -60,7 +68,7 @@ Follow the rules:
 
 Go!"""
 
-pronounce_deaf = """Select the final part of the following text for the user to read aloud:
+pronounce_deaf = """Select the final part of the following text for the user to read aloud (this exercise is called pronounce-deaf):
 ----
 {StoryBlock}
 ----
@@ -74,7 +82,7 @@ Follow the rules:
 Go!"""
 
 
-speak_question = """Ask an open-ended and simple short answer question based on the following text in {language}:
+speak_question = """Ask an open-ended and simple short answer question (called speak-question) based on the following text in {language}:
 ----
 {StoryBlock}
 ----
@@ -86,7 +94,7 @@ Follow the rules:
 
 Go!"""
 
-interact = """Ask an open-ended and short question based on the following text in {language}:
+interact = """Ask an open-ended and short question (called interact) based on the following text in {language}:
 ----
 {previous StoryBlock}
 ----
