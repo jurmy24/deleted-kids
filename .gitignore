@@ -180,3 +180,5 @@ utter-firebase-service-account.json
 
 # Hide scrap script file
 scrap.py
+
+.DS_Store
