@@ -4,11 +4,11 @@ from typing import Dict, Optional
 from dotenv import load_dotenv
 from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
-from backstage.story_schema import ExerciseBlock, Story, StoryBlock
+from utils.story_schema import ExerciseBlock, Story, StoryBlock
 from backstage.firebase_storage import FirebaseStorage
 import logging
 from tqdm import tqdm
-import backstage.story_compiler as story_compiler
+import utils.story_compiler as story_compiler
 
 
 class AudioIntegrator:
