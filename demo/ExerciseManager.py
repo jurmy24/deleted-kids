@@ -1,6 +1,6 @@
 from colorama import Fore, Style
 from pydantic import UUID4
-from utils.story_schema import Exercise, ExerciseBlock, Story, StoryBlock
+from models.story_schema import Exercise, ExerciseBlock, Story, StoryBlock
 from demo.InteractionBot import InteractionBot
 from demo.SpeechRecognizer import SpeechRecognizer
 from demo.PronunciationRecognizer import PronunciationRecognizer
