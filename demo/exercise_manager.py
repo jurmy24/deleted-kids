@@ -1,3 +1,5 @@
+import json
+import threading
 from colorama import Fore, Style
 from pydantic import UUID4
 from models.story_schema import Exercise, ExerciseBlock, Story, StoryBlock
@@ -8,15 +10,26 @@ import random
 
 
 class ExerciseManager:
+    _instances = {}
+    _lock = threading.Lock()
+
+    def __new__(cls, language: str = "swedish", *args, **kwargs):
+        with cls._lock:
+            if language not in cls._instances:
+                cls._instances[language] = super(ExerciseManager, cls).__new__(cls)
+        return cls._instances[language]
+
     def __init__(self, language: str = "swedish"):
-        self.pronunciation_recognizer = PronunciationRecognizer(language=language)
-        self.speech_recognizer = SpeechRecognizer(language=language)
-        self.interaction_bot = InteractionBot()
+        if not hasattr(self, "_initialized"):
+            self.language = language
+            self.pronunciation_recognizer = PronunciationRecognizer(language=language)
+            self.speech_recognizer = SpeechRecognizer(language=language)
+            self.interaction_bot = InteractionBot()
 
-        import json
+            with open("stories/interaction_bots.json", "r") as file:
+                self.voicebots = json.load(file)
 
-        with open("stories/interaction_bots.json", "r") as file:
-            self.voicebots = json.load(file)
+            self._initialized = True
 
     def handle_exercise(self, exercise: Exercise, story: Story, processed_story: list):
         """
