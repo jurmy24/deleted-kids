@@ -25,10 +25,22 @@ with suppress_stdout():
 
 
 class AudioPlayer:
+    _instance = None
+    _lock = threading.Lock()
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            with cls._lock:
+                if not cls._instance:
+                    cls._instance = super(AudioPlayer, cls).__new__(cls)
+        return cls._instance
+
     def __init__(self):
-        pygame.mixer.init()
-        self._thread = None
-        self._stop_event = threading.Event()
+        if not hasattr(self, "_initialized"):
+            pygame.mixer.init()
+            self._thread = None
+            self._stop_event = threading.Event()
+            self._initialized = True
 
     def _play_audio(self, audio_segment: AudioSegment):
         """Handles audio playback using pygame."""
