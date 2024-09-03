@@ -9,10 +9,10 @@ from typing import Literal, Tuple
 from colorama import Fore, Style
 
 from backstage.firebase_storage import FirebaseStorage
-from utils.utils import compile_json_to_story, read_json_file
+from utils import compile_json_to_story, read_json_file
 from models.story_schema import Chapter, Exercise, ExerciseBlock, Story, StoryBlock
-from demo.ExerciseManager import ExerciseManager  # Import the ExerciseManager
-from demo.AudioPlayer import BackgroundAudioPlayer
+from demo.exercise_manager import ExerciseManager  # Import the ExerciseManager
+from demo.audio_player import AudioPlayer
 
 
 class StoryPlayer:
@@ -21,7 +21,7 @@ class StoryPlayer:
         self.user_level = user_level
         self.audio_storage = FirebaseStorage()
         self.exercise_manager = ExerciseManager()  # Initialize the ExerciseManager
-        self.audio_player = BackgroundAudioPlayer()
+        self.audio_player = AudioPlayer()
         self.line_modifications = {}  # Store modifications for specific lines
         self.selected_exercises = {}  # Store preprocessing selected exercises
         self.processed_story = []

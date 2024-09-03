@@ -24,7 +24,7 @@ with suppress_stdout():
     import pygame
 
 
-class BackgroundAudioPlayer:
+class AudioPlayer:
     def __init__(self):
         pygame.mixer.init()
         self._thread = None
