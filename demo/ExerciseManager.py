@@ -15,7 +15,7 @@ class ExerciseManager:
 
         import json
 
-        with open("backstage/interaction_bots.json", "r") as file:
+        with open("stories/interaction_bots.json", "r") as file:
             self.voicebots = json.load(file)
 
     def handle_exercise(self, exercise: Exercise, story: Story, processed_story: list):
