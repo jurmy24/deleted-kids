@@ -8,7 +8,7 @@ from models.story_schema import ExerciseBlock, Story, StoryBlock
 from backstage.firebase_storage import FirebaseStorage
 import logging
 from tqdm import tqdm
-import utils.story_compiler as story_compiler
+import utils as utils
 
 
 class AudioIntegrator:
@@ -170,10 +170,10 @@ if __name__ == "__main__":
     json_file_path = "stories/se/beginner-fika.json"
 
     # Read JSON data from the file
-    json_data = story_compiler.read_json_file(json_file_path)
+    json_data = utils.read_json_file(json_file_path)
 
     # Example usage
-    story = story_compiler.compile_json_to_story(json_data)
+    story = utils.compile_json_to_story(json_data)
 
     character_voice_map = {
         "Narrator": "IKne3meq5aSn9XLyUdCD",
