@@ -125,5 +125,5 @@ class Story(BaseModel):
     voice_map: Optional[Dict[str, str]] = None
     language: Literal["en", "se", "fr"]
     story_id: int
-    level: Literal["beginner", "intermediate", "advanced"]
+    difficulty: Literal["beginner", "intermediate", "advanced"]
     chapters: List[Chapter]
