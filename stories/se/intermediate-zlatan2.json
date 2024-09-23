@@ -1,0 +1,365 @@
+{
+  "title": "Zlatan",
+  "description": "En resa genom sveriges bästa fotbollsspelares liv.",
+  "audio": null,
+  "voice_map": null,
+  "language": "se",
+  "story_id": 2,
+  "difficulty": "beginner",
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "Rackaren",
+      "summary": "En berättelse om Zlatan Ibrahimovićs uppväxt och fotbollskarriär, där hans unika talang och självförtroende tidigt satte honom på vägen mot framgång.",
+      "audio": null,
+      "blocks": [
+        {
+          "block_id": 1,
+          "block_type": "story",
+          "lines": [
+            {
+              "line_id": 1,
+              "character": "Narrator",
+              "text": "Zlatan Ibrahimović växte upp i Rosengård, Malmö; ett område som var tufft, men inte tuffare än Zlatan!",
+              "audio": null
+            },
+            {
+              "line_id": 2,
+              "character": "Narrator",
+              "text": "Som barn var han redan mannen. Han bestämde sin egen läggdags, spelade fotboll på gatorna tills sent på kvällen och sparkade bollen hårdare än någon annan jävel.",
+              "audio": null
+            },
+            {
+              "line_id": 3,
+              "character": "Narrator",
+              "text": "Från tidig ålder visste han att han kände sig bäst med en boll mellan fötterna.",
+              "audio": null
+            }
+          ]
+        },
+        {
+          "block_id": 2,
+          "block_type": "exercise",
+          "exercise_options": [
+            {
+              "exercise_id": 1,
+              "type": "comp-mcq",
+              "cefr": ["B1"],
+              "skip_condition": null,
+              "query": "Var växte Zlatan Ibrahimović upp?",
+              "answer_options": {
+                "1": {
+                  "text": "Stockholm",
+                  "is_correct": false
+                },
+                "2": {
+                  "text": "Malmö",
+                  "is_correct": true
+                },
+                "3": {
+                  "text": "Göteborg",
+                  "is_correct": false
+                }
+              },
+              "hints": null,
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            },
+            {
+              "exercise_id": 2,
+              "type": "comp-mcq",
+              "cefr": ["B1"],
+              "skip_condition": null,
+              "query": "Vad gjorde Zlatan ofta som barn?",
+              "answer_options": {
+                "1": {
+                  "text": "Han sparkade en boll.",
+                  "is_correct": true
+                },
+                "2": {
+                  "text": "Han spelade gitarr.",
+                  "is_correct": false
+                },
+                "3": {
+                  "text": "Han simmade.",
+                  "is_correct": false
+                }
+              },
+              "hints": ["Han spelade fotboll."],
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            },
+            {
+              "exercise_id": 3,
+              "type": "comp-tf",
+              "cefr": ["B2"],
+              "skip_condition": null,
+              "query": "Zlatan spelade fotboll på gatorna tills sent på kvällen.",
+              "answer_options": {
+                "1": {
+                  "text": "Ja",
+                  "is_correct": true
+                },
+                "2": {
+                  "text": "Nej",
+                  "is_correct": false
+                }
+              },
+              "hints": null,
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            }
+          ]
+        },
+        {
+          "block_id": 3,
+          "block_type": "story",
+          "lines": [
+            {
+              "line_id": 1,
+              "character": "Narrator",
+              "text": "Han bodde med sin mamma som var sträng och disciplinerad.",
+              "audio": null
+            },
+            {
+              "line_id": 2,
+              "character": "Mamma",
+              "text": "Varför gör du inte läxor istället för att spela hela tiden?",
+              "audio": null
+            },
+            {
+              "line_id": 3,
+              "character": "Zlatan",
+              "text": "Jag gör mål, inte läxor.",
+              "audio": null
+            },
+            {
+              "line_id": 4,
+              "character": "Narrator",
+              "text": "Zlatan var en liten rackare, men det var för en grund. Zlatan var annorlunda.",
+              "audio": null
+            }
+          ]
+        },
+        {
+          "block_id": 4,
+          "block_type": "exercise",
+          "exercise_options": [
+            {
+              "exercise_id": 1,
+              "type": "pronounce-rep",
+              "cefr": ["B1"],
+              "skip_condition": null,
+              "query": "Jag gör mål, inte läxor.",
+              "answer_options": null,
+              "hints": null,
+              "audio": null,
+              "action": "emphasize-text",
+              "affected_line": "2-1-3-3"
+            },
+            {
+              "exercise_id": 2,
+              "type": "pronounce-deaf",
+              "cefr": ["B2"],
+              "skip_condition": null,
+              "query": "Jag gör mål, inte läxor.",
+              "answer_options": null,
+              "hints": null,
+              "audio": null,
+              "action": "hide-audio",
+              "affected_line": "2-1-3-3"
+            }
+          ]
+        },
+        {
+          "block_id": 5,
+          "block_type": "story",
+          "lines": [
+            {
+              "line_id": 1,
+              "character": "Narrator",
+              "text": "När han började på Malmös fotbollsklubb vid 14 år gammal visste tränarna direkt att de hade något speciellt.",
+              "audio": null
+            },
+            {
+              "line_id": 2,
+              "character": "Narrator",
+              "text": "På planen gjorde Zlatan vad han ville. Om han ville skjuta från mitten av fotbollsplanen, gjorde han det.",
+              "audio": null
+            }
+          ]
+        },
+        {
+          "block_id": 6,
+          "block_type": "exercise",
+          "exercise_options": [
+            {
+              "exercise_id": 1,
+              "type": "interact",
+              "cefr": ["B2"],
+              "skip_condition": null,
+              "query": "Varför tror du att Zlatan var så speciell?",
+              "answer_options": null,
+              "hints": ["Han var så lång.", "Han hade energi."],
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            },
+            {
+              "exercise_id": 2,
+              "type": "interact",
+              "cefr": ["B2"],
+              "skip_condition": null,
+              "query": "Varför tror du att tränarna tyckte Zlatan var så speciell vid 14 års ålder?",
+              "answer_options": null,
+              "hints": ["Han var duktig och kaxig"],
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            }
+          ]
+        },
+        {
+          "block_id": 7,
+          "block_type": "story",
+          "lines": [
+            {
+              "line_id": 1,
+              "character": "Narrator",
+              "text": "Tränarna försökte få honom att spela mer som ett lag, men Zlatan spelade för Zlatan. Och Zlatan gjorde mål.",
+              "audio": null
+            },
+            {
+              "line_id": 2,
+              "character": "Zlatan",
+              "text": "Jag är inte här för att passa, jag är här för att vinna.",
+              "audio": null
+            }
+          ]
+        },
+        {
+          "block_id": 8,
+          "block_type": "exercise",
+          "exercise_options": [
+            {
+              "exercise_id": 1,
+              "type": "speak-question",
+              "cefr": ["B1"],
+              "skip_condition": null,
+              "query": "Vilka sporter spelar du?",
+              "answer_options": null,
+              "hints": ["Jag spelar fotboll", "Jag tycker om handboll"],
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            },
+            {
+              "exercise_id": 2,
+              "type": "comp-tf",
+              "cefr": ["B1"],
+              "skip_condition": null,
+              "query": "Zlatan var här för att passa bollen.",
+              "answer_options": {
+                "1": {
+                  "text": "Sant",
+                  "is_correct": false
+                },
+                "2": {
+                  "text": "Falskt",
+                  "is_correct": true
+                }
+              },
+              "hints": null,
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            }
+          ]
+        },
+        {
+          "block_id": 9,
+          "block_type": "story",
+          "lines": [
+            {
+              "line_id": 1,
+              "character": "Narrator",
+              "text": "De andra spelarna var både imponerade och frustrerade. De hade ju tränat i år för att få en plats i laget, men Zlatan gjorde det som om det var lätt.",
+              "audio": null
+            }
+          ]
+        },
+        {
+          "block_id": 10,
+          "block_type": "exercise",
+          "exercise_options": [
+            {
+              "exercise_id": 1,
+              "type": "comp-mcq",
+              "cefr": ["B1"],
+              "skip_condition": null,
+              "query": "Hur kände sig de andra spelarna om Zlatan?",
+              "answer_options": {
+                "1": {
+                  "text": "De var imponerade och frustrerade.",
+                  "is_correct": true
+                },
+                "2": {
+                  "text": "De var avundsjuka och arga.",
+                  "is_correct": false
+                },
+                "3": {
+                  "text": "De var bara glada för hans framgång.",
+                  "is_correct": false
+                }
+              },
+              "hints": null,
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            },
+            {
+              "exercise_id": 2,
+              "type": "comp-mcq",
+              "cefr": ["B1"],
+              "skip_condition": null,
+              "query": "Varför var de andra spelarna frustrerade?",
+              "answer_options": {
+                "1": {
+                  "text": "För att de inte fick träna med Zlatan.",
+                  "is_correct": false
+                },
+                "2": {
+                  "text": "För att de hade tränat i år, men Zlatan gjorde allt enkelt.",
+                  "is_correct": true
+                },
+                "3": {
+                  "text": "För att Zlatan inte ville spela i laget.",
+                  "is_correct": false
+                }
+              },
+              "hints": null,
+              "audio": null,
+              "action": null,
+              "affected_line": null
+            }
+          ]
+        },
+        {
+          "block_id": 11,
+          "block_type": "story",
+          "lines": [
+            {
+              "line_id": 1,
+              "character": "Narrator",
+              "text": "Zlatan visste att han var på väg mot något större.",
+              "audio": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

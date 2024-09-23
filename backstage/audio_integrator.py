@@ -69,17 +69,17 @@ class AudioIntegrator:
 
         if chapter is None:
             destination_blob_name = (
-                f"audio/{language}/{story_id}_{story_title.replace(" ", "_").lower()}/"
+                f"audio/{language}/{story_id}_{story_title.replace(' ','_').lower()}/"
                 f"description_c{character.capitalize()}.mp3"
             )
             destination_blob_name = self.firebase_storage.upload_blob_from_memory(
                 audio_content, destination_blob_name
             )
             return destination_blob_name
-        
+
         if block_id is None:
             destination_blob_name = (
-                f"audio/{language}/{story_id}_{story_title.replace(" ", "_").lower()}/chapter_{chapter}/"
+                f"audio/{language}/{story_id}_{story_title.replace(' ','_').lower()}/chapter_{chapter}/"
                 f"summary_c{character.capitalize()}.mp3"
             )
             destination_blob_name = self.firebase_storage.upload_blob_from_memory(
@@ -88,7 +88,7 @@ class AudioIntegrator:
             return destination_blob_name
 
         destination_blob_name = (
-            f"audio/{language}/{story_id}_{story_title.replace(" ", "_").lower()}/chapter_{chapter}/"
+            f"audio/{language}/{story_id}_{story_title.replace(' ','_').lower()}/chapter_{chapter}/"
             f"b{block_id}_{extra_identifier}_c{character.capitalize()}.mp3"
         )
         destination_blob_name = self.firebase_storage.upload_blob_from_memory(
@@ -96,19 +96,43 @@ class AudioIntegrator:
         )
         return destination_blob_name
 
-    def integrate_audio_into_story(self, story: Story, character_voice_map: Dict[str, str]) -> Story:
+    def integrate_audio_into_story(
+        self, story: Story, character_voice_map: Dict[str, str]
+    ) -> Story:
         """
         Integrates audio files into the story by generating and uploading them,
         including for the story description and chapter summaries,
         then updates the story structure with the audio file locations.
         """
-        def process_line_or_exercise(text, voice_id, language, title, story_id, chapter, character, block_id=None, line_id=None, exercise_id=None):
+
+        def process_line_or_exercise(
+            text,
+            voice_id,
+            language,
+            title,
+            story_id,
+            chapter,
+            character,
+            block_id=None,
+            line_id=None,
+            exercise_id=None,
+        ):
             if voice_id is None:
-                self.logger.error(f"Voice ID not found for character: {character}, in block {block_id}")
+                self.logger.error(
+                    f"Voice ID not found for character: {character}, in block {block_id}"
+                )
                 return None
             audio_content = self.text_to_speech(text, voice_id)
             return self.upload_audio_to_storage(
-                audio_content, language, title, story_id, character, chapter=chapter, block_id=block_id, exercise_id=exercise_id, line_id=line_id, 
+                audio_content,
+                language,
+                title,
+                story_id,
+                character,
+                chapter=chapter,
+                block_id=block_id,
+                exercise_id=exercise_id,
+                line_id=line_id,
             )
 
         # Process Story Description Audio
@@ -119,7 +143,7 @@ class AudioIntegrator:
             story.title,
             story.story_id,
             chapter=None,
-            character="Narrator"
+            character="Narrator",
         )
 
         total_blocks = sum(len(chapter.blocks) for chapter in story.chapters)
@@ -134,7 +158,7 @@ class AudioIntegrator:
                         story.title,
                         story.story_id,
                         chapter.chapter,
-                        character="Narrator"
+                        character="Narrator",
                     )
 
                     for block in chapter.blocks:
@@ -144,30 +168,51 @@ class AudioIntegrator:
                                     line.audio = process_line_or_exercise(
                                         line.text,
                                         character_voice_map.get(line.character),
-                                        story.language, story.title, story.story_id,
-                                        chapter.chapter, line.character, block.block_id, line.line_id
+                                        story.language,
+                                        story.title,
+                                        story.story_id,
+                                        chapter.chapter,
+                                        line.character,
+                                        block.block_id,
+                                        line.line_id,
                                     )
                         elif isinstance(block, ExerciseBlock):
                             for exercise in block.exercise_options:
-                                if exercise.type in {"comp-mcq", "comp-tf", "speak-replace", "speak-question", "interact"} and exercise.audio is None:
+                                if (
+                                    exercise.type
+                                    in {
+                                        "comp-mcq",
+                                        "comp-tf",
+                                        "speak-replace",
+                                        "speak-question",
+                                        "interact",
+                                    }
+                                    and exercise.audio is None
+                                ):
                                     exercise.audio = process_line_or_exercise(
                                         exercise.query,
                                         character_voice_map.get("Narrator"),
-                                        story.language, story.title, story.story_id,
-                                        chapter.chapter, "Narrator", block.block_id, exercise_id=exercise.exercise_id
+                                        story.language,
+                                        story.title,
+                                        story.story_id,
+                                        chapter.chapter,
+                                        "Narrator",
+                                        block.block_id,
+                                        exercise_id=exercise.exercise_id,
                                     )
                 except Exception as e:
-                    self.logger.error(f"Error processing chapter {chapter.chapter}: {str(e)}")
+                    self.logger.error(
+                        f"Error processing chapter {chapter.chapter}: {str(e)}"
+                    )
                 finally:
                     pbar.update(1)
         return story
 
 
-
 if __name__ == "__main__":
 
     # Specify the path to your JSON file
-    json_file_path = "stories/se/beginner-fika.json"
+    json_file_path = "stories/se/intermediate-zlatan2.json"
 
     # Read JSON data from the file
     json_data = utils.read_json_file(json_file_path)
@@ -176,9 +221,9 @@ if __name__ == "__main__":
     story = utils.compile_json_to_story(json_data)
 
     character_voice_map = {
-        "Narrator": "IKne3meq5aSn9XLyUdCD",
-        "Anna": "pFZP5JQG7iQjIQuC4Bku",
-        "Karl": "bIHbv24MWmeRgasZH58o",
+        "Narrator": "x0u3EW21dbrORJzOq1m9",
+        "Mamma": "2qbJHyAaz7tHCfVZS6z3",
+        "Zlatan": "kzrsjZhHCumKqmkJl486",
     }
 
     integrator = AudioIntegrator()
@@ -190,5 +235,5 @@ if __name__ == "__main__":
     story_dict = json.loads(json_string)
 
     # Save the updated story to a file or database as needed
-    with open("stories/se/beginner-fika.json", "w", encoding="utf-8") as f:
+    with open("stories/se/intermediate-zlatan.json", "w", encoding="utf-8") as f:
         json.dump(story_dict, f, indent=4, ensure_ascii=False)

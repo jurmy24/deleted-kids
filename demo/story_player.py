@@ -32,6 +32,7 @@ class StoryPlayer:
         return chapter_number, block_id, line_id
 
     def _play_audio(self, audio_url: str) -> None:
+        return
         # Assuming audio_url is a link to the audio file
         audio_data = self.audio_storage.download_blob_into_memory(audio_url)
         if audio_data:
